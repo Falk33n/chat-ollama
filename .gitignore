@@ -1,0 +1,10 @@
+# Packages
+node_modules
+
+# Output
+.vercel
+/.svelte-kit
+
+# Env
+.env.*
+!.env.example
