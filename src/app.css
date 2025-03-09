@@ -159,6 +159,26 @@
 		@apply bg-background font-geist-sans text-foreground w-full overflow-x-hidden;
 	}
 
+	::-webkit-scrollbar {
+		@apply size-[9px];
+	}
+
+	::-webkit-scrollbar-track {
+		@apply bg-foreground/5;
+	}
+
+	::-webkit-scrollbar-thumb {
+		@apply bg-foreground/40;
+	}
+
+	::-webkit-scrollbar-thumb:hover {
+		@apply bg-foreground/65;
+	}
+
+	::-webkit-scrollbar-corner {
+		@apply bg-foreground/10;
+	}
+
 	.container {
 		@apply mx-auto max-w-[1400px] px-8;
 	}

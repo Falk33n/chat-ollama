@@ -6,7 +6,7 @@
 </script>
 
 <AppTooltip content={sidebar.open ? 'Close Sidebar' : 'Open Sidebar'}>
-	{#snippet trigger({ props: { 'aria-label': _ariaLabel, ...props } })}
+	{#snippet trigger({ props })}
 		<SidebarTrigger
 			aria-label={sidebar.open ? 'Close Sidebar' : 'Open Sidebar'}
 			{...props}

@@ -10,15 +10,7 @@
 </script>
 
 <AppTooltip content={title}>
-	{#snippet trigger({
-		props: {
-			'aria-label': _ariaLabel,
-			'onclick': _onclick,
-			'variant': _variant,
-			'size': _size,
-			...props
-		},
-	})}
+	{#snippet trigger({ props })}
 		<Button
 			onclick={toggleMode}
 			variant="outline"

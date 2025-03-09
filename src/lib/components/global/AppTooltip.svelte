@@ -21,8 +21,7 @@
 
 	type AppTooltipPropsWithHTML = WithoutChildren<TooltipProps>;
 
-	export type AppTooltipProps = AppTooltipPropsWithoutHTML &
-		AppTooltipPropsWithHTML;
+	type AppTooltipProps = AppTooltipPropsWithoutHTML & AppTooltipPropsWithHTML;
 </script>
 
 <script lang="ts">
