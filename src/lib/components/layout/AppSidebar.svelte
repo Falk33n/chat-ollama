@@ -40,6 +40,7 @@
 </script>
 
 <script lang="ts">
+	import { ModeToggle } from '$components/layout';
 	import {
 		Sidebar,
 		SidebarContent,
@@ -109,5 +110,8 @@
 		</SidebarGroup>
 	</SidebarContent>
 
-	<SidebarFooter>Footer</SidebarFooter>
+	<SidebarFooter>
+		Footer
+		<ModeToggle />
+	</SidebarFooter>
 </Sidebar>
