@@ -52,7 +52,7 @@
 		{...contentProps}
 	>
 		<TooltipArrow
-			class="text-primary bg-transparent"
+			class="text-primary"
 			aria-hidden
 		/>
 
