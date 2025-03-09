@@ -7,12 +7,13 @@ const svelteConfig = {
 	kit: {
 		adapter: adapter(),
 		alias: {
-			'$styles': './src/app.css',
-			'$utils': './src/lib/utils.ts',
-			'$types': './src/lib/types.ts',
-			'$schemas': './src/lib/schemas.ts',
-			'$components/*': './src/lib/components/*',
-			'$server/*': './src/lib/server/*',
+			$styles: './src/app.css',
+			$utils: './src/lib/utils.ts',
+			$types: './src/lib/types.ts',
+			$schemas: './src/lib/schemas.ts',
+			$hooks: './src/lib/hooks.svelte.ts',
+			$components: './src/lib/components',
+			$server: './src/lib/server',
 		},
 	},
 };
