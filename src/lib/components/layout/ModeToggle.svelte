@@ -4,18 +4,18 @@
 	import { MoonIcon, SunIcon } from 'lucide-svelte';
 	import { mode, toggleMode } from 'mode-watcher';
 
-	const title = $derived(
+	const label = $derived(
 		$mode === 'dark' ? 'Change to light theme' : 'Change to dark theme',
 	);
 </script>
 
-<AppTooltip content={title}>
+<AppTooltip content={label}>
 	{#snippet trigger({ props: { onclick: _onclick, ...props } })}
 		<Button
 			onclick={toggleMode}
 			variant="outline"
 			size="icon"
-			aria-label={title}
+			aria-label={label}
 			{...props}
 		>
 			<SunIcon
