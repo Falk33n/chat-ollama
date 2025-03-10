@@ -1,7 +1,7 @@
 {
 	"name": "chat-ollama",
 	"private": true,
-	"version": "0.0.1",
+	"version": "0.0.1-alpha",
 	"type": "module",
 	"scripts": {
 		"dev": "vite dev",
@@ -11,8 +11,7 @@
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"format": "prettier --write .",
-		"lint": "prettier --check . && eslint .",
-		"bun:cache:remove": "bun pm cache rm -g -f"
+		"lint": "prettier --check . && eslint ."
 	},
 	"dependencies": {
 		"zod": "^3.24.2"
