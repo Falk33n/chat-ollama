@@ -12,7 +12,7 @@
 <script lang="ts">
 	import { useSidebar } from '$components/ui/sidebar';
 	import { cn } from '$utils';
-	import { PanelLeftIcon } from 'lucide-svelte';
+	import { PanelLeftOpenIcon } from 'lucide-svelte';
 
 	let {
 		ref = $bindable(null),
@@ -32,11 +32,11 @@
 		sidebar.toggle();
 	}}
 	data-sidebar="trigger"
-	variant="ghost"
+	variant="outline"
 	size="icon"
-	class={cn('size-7', className)}
+	class={className ? cn(className) : undefined}
 	aria-label={ariaLabel}
 	{...restProps}
 >
-	<PanelLeftIcon aria-hidden />
+	<PanelLeftOpenIcon aria-hidden />
 </Button>

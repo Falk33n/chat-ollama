@@ -135,6 +135,26 @@
 			chatId: 'chat_017',
 			updatedAt: formatDate(new Date('2023-11-05T14:15:00Z')),
 		},
+		{
+			title: 'Feature dRequests',
+			chatId: 'chat_022',
+			updatedAt: formatDate(new Date('2024-02-15T12:30:00Z')),
+		},
+		{
+			title: 'Server Migration',
+			chatId: 'chat_023',
+			updatedAt: formatDate(new Date('2024-01-10T09:45:00Z')),
+		},
+		{
+			title: 'Holiday Sdales Strategy',
+			chatId: 'chat_024',
+			updatedAt: formatDate(new Date('2023-12-20T16:00:00Z')),
+		},
+		{
+			title: 'Legacy Sysgtem Review',
+			chatId: 'chat_025',
+			updatedAt: formatDate(new Date('2023-11-05T14:15:00Z')),
+		},
 	];
 
 	const chatHistoryMenuItems = groupChatHistory(chatHistory);
@@ -163,7 +183,9 @@
 	<SidebarContent class="gap-5">
 		{#each chatHistoryMenuItems as { group, items } (group)}
 			<SidebarGroup class="py-[unset]">
-				<SidebarGroupLabel class="h-5">{group}</SidebarGroupLabel>
+				<SidebarGroupLabel class="bg-sidebar sticky top-0 z-[10] h-9">
+					{group}
+				</SidebarGroupLabel>
 
 				<SidebarGroupContent>
 					<SidebarMenu class="gap-[unset]">
