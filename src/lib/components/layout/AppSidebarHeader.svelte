@@ -9,11 +9,12 @@
 
 <SidebarHeader class="mb-5 flex-row items-center justify-between gap-2">
 	<AppTooltip content="Close Sidebar">
-		{#snippet trigger({ props: { onclick, ...props } })}
+		{#snippet trigger({ props: { onclick: _onclick, ...props } })}
 			<Button
 				variant="outline"
 				size="icon"
 				aria-label="Close Sidebar"
+				data-sidebar="trigger"
 				onclick={() => {
 					sidebar.toggle();
 				}}
@@ -26,7 +27,7 @@
 
 	<div class="flex items-center justify-center gap-2">
 		<AppTooltip content="Search in chats">
-			{#snippet trigger({ props })}
+			{#snippet trigger({ props: { onclick: _onclick, ...props } })}
 				<Button
 					variant="outline"
 					size="icon"
@@ -39,7 +40,7 @@
 		</AppTooltip>
 
 		<AppTooltip content="New chat">
-			{#snippet trigger({ props })}
+			{#snippet trigger({ props: { onclick: _onclick, ...props } })}
 				<Button
 					variant="outline"
 					size="icon"

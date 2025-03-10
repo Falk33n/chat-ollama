@@ -5,13 +5,15 @@
 	const sidebar = useSidebar();
 </script>
 
-<div class="fixed top-2 left-2">
-	<AppTooltip content={sidebar.open ? 'Close Sidebar' : 'Open Sidebar'}>
-		{#snippet trigger({ props })}
-			<SidebarTrigger
-				aria-label={sidebar.open ? 'Close Sidebar' : 'Open Sidebar'}
-				{...props}
-			/>
-		{/snippet}
-	</AppTooltip>
-</div>
+{#if !sidebar.open}
+	<div class="fixed top-2 left-2">
+		<AppTooltip content="Open Sidebar">
+			{#snippet trigger({ props: { onclick: _onclick, ...props } })}
+				<SidebarTrigger
+					aria-label="Open Sidebar"
+					{...props}
+				/>
+			{/snippet}
+		</AppTooltip>
+	</div>
+{/if}
