@@ -161,15 +161,10 @@
 </script>
 
 <script lang="ts">
-	import {
-		AppSidebarHeader,
-		AppSidebarMenuItem,
-		ModeToggle,
-	} from '$components/layout';
+	import { AppSidebarHeader, AppSidebarMenuItem } from '$components/layout';
 	import {
 		Sidebar,
 		SidebarContent,
-		SidebarFooter,
 		SidebarGroup,
 		SidebarGroupContent,
 		SidebarGroupLabel,
@@ -180,10 +175,12 @@
 <Sidebar>
 	<AppSidebarHeader />
 
-	<SidebarContent class="gap-5">
+	<SidebarContent class="gap-0">
 		{#each chatHistoryMenuItems as { group, items } (group)}
-			<SidebarGroup class="py-[unset]">
-				<SidebarGroupLabel class="bg-sidebar sticky top-0 z-[10] h-9">
+			<SidebarGroup class="pt-[unset] pb-4">
+				<SidebarGroupLabel
+					class="bg-sidebar sticky top-0 z-[10] mb-0.5 h-7 font-semibold"
+				>
 					{group}
 				</SidebarGroupLabel>
 
@@ -200,9 +197,4 @@
 			</SidebarGroup>
 		{/each}
 	</SidebarContent>
-
-	<SidebarFooter>
-		Footer
-		<ModeToggle />
-	</SidebarFooter>
 </Sidebar>

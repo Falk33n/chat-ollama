@@ -10,7 +10,7 @@
 </script>
 
 <AppTooltip content={title}>
-	{#snippet trigger({ props })}
+	{#snippet trigger({ props: { onclick: _onclick, ...props } })}
 		<Button
 			onclick={toggleMode}
 			variant="outline"
