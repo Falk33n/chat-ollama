@@ -5,7 +5,7 @@
 </script>
 
 <AppTooltip content="Open profile settings">
-	{#snippet trigger({ props })}
+	{#snippet trigger({ props: { onclick: _onclick, ...props } })}
 		<Button
 			variant="outline"
 			size="icon"
