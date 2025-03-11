@@ -6,6 +6,7 @@
 		Tooltip,
 		TooltipArrow,
 		TooltipContent,
+		TooltipPortal,
 		TooltipTrigger,
 		type TooltipContentProps,
 		type TooltipProps,
@@ -46,21 +47,23 @@
 		{/snippet}
 	</TooltipTrigger>
 
-	<TooltipContent
-		sideOffset={6}
-		{...contentProps}
-	>
-		<TooltipArrow
-			class="text-primary"
-			aria-hidden
-		/>
+	<TooltipPortal>
+		<TooltipContent
+			sideOffset={6}
+			{...contentProps}
+		>
+			<TooltipArrow
+				class="text-primary"
+				aria-hidden
+			/>
 
-		{#if content}
-			{#if typeof content === 'string'}
-				{content}
-			{:else}
-				{@render content({ props: contentProps })}
+			{#if content}
+				{#if typeof content === 'string'}
+					{content}
+				{:else}
+					{@render content({ props: contentProps })}
+				{/if}
 			{/if}
-		{/if}
-	</TooltipContent>
+		</TooltipContent>
+	</TooltipPortal>
 </Tooltip>
