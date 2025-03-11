@@ -9,6 +9,11 @@ export { default as AppSidebarHeader } from '$components/layout/AppSidebarHeader
 
 export { default as ProfileSettingsTrigger } from '$components/layout/ProfileSettingsTrigger.svelte';
 
+export {
+	default as ChatSettings,
+	type ChatSettingsProps,
+} from '$components/layout/ChatSettings.svelte';
+
 export { default as ChatSettingsTrigger } from '$components/layout/ChatSettingsTrigger.svelte';
 
 export {
