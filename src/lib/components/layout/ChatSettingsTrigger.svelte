@@ -75,6 +75,8 @@
 	</DropdownMenuTrigger>
 
 	<DropdownMenuContent sideOffset={-6}>
+		<DropdownMenuArrow />
+
 		<DropdownMenuGroup>
 			<DropdownMenuGroupHeading>GroupHeading</DropdownMenuGroupHeading>
 
@@ -88,7 +90,5 @@
 
 			<DropdownMenuItem>Item</DropdownMenuItem>
 		</DropdownMenuGroup>
-
-		<DropdownMenuArrow />
 	</DropdownMenuContent>
 </DropdownMenu>
