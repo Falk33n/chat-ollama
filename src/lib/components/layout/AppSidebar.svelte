@@ -177,9 +177,9 @@
 
 	<SidebarContent class="gap-0">
 		{#each chatHistoryMenuItems as { group, items } (group)}
-			<SidebarGroup class="pt-[unset] pb-4">
+			<SidebarGroup class="pt-[unset] pb-5">
 				<SidebarGroupLabel
-					class="bg-sidebar sticky top-0 z-[10] mb-0.5 h-7 font-semibold"
+					class="top-0 z-[10] sticky bg-sidebar mb-0.5 h-7 font-semibold"
 				>
 					{group}
 				</SidebarGroupLabel>
