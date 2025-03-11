@@ -5,8 +5,8 @@
 	const sidebar = useSidebar();
 </script>
 
-{#if !sidebar.open}
-	<div class="fixed top-2 left-2">
+{#if !sidebar.open || sidebar.isMobile}
+	<div class="top-2 left-2 fixed">
 		<AppTooltip content="Open Sidebar">
 			{#snippet trigger({ props: { onclick: _onclick, ...props } })}
 				<SidebarTrigger
