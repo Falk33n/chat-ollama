@@ -7,13 +7,14 @@
 	const sidebar = useSidebar();
 </script>
 
-<SidebarHeader class="mb-5 flex-row items-center justify-between gap-2">
+<SidebarHeader class="flex-row justify-between items-center gap-2 mb-4">
 	<AppTooltip content="Close Sidebar">
 		{#snippet trigger({ props: { onclick: _onclick, ...props } })}
 			<Button
 				variant="outline"
 				size="icon"
 				aria-label="Close Sidebar"
+				class="bg-sidebar hover:bg-background"
 				data-sidebar="trigger"
 				onclick={() => {
 					sidebar.toggle();
@@ -25,12 +26,13 @@
 		{/snippet}
 	</AppTooltip>
 
-	<div class="flex items-center justify-center gap-2">
+	<div class="flex justify-center items-center gap-2">
 		<AppTooltip content="Search in chats">
 			{#snippet trigger({ props: { onclick: _onclick, ...props } })}
 				<Button
 					variant="outline"
 					size="icon"
+					class="bg-sidebar hover:bg-background"
 					aria-label="Search in chats"
 					{...props}
 				>
@@ -44,6 +46,7 @@
 				<Button
 					variant="outline"
 					size="icon"
+					class="bg-sidebar hover:bg-background"
 					aria-label="New chat"
 					{...props}
 				>
