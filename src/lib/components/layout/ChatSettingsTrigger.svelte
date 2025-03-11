@@ -75,7 +75,7 @@
 	</DropdownMenuTrigger>
 
 	<DropdownMenuContent sideOffset={-6}>
-		<DropdownMenuArrow />
+		<DropdownMenuArrow aria-hidden />
 
 		<DropdownMenuGroup>
 			<DropdownMenuGroupHeading>GroupHeading</DropdownMenuGroupHeading>
