@@ -1,5 +1,5 @@
 import { SIDEBAR_KEYBOARD_SHORTCUT } from '$components/ui/sidebar';
-import { IsMobile } from '$lib/hooks.svelte';
+import { IsMobile } from '$hooks';
 import { getContext, setContext } from 'svelte';
 
 type Getter<T> = () => T;
