@@ -3,7 +3,7 @@
 	module
 >
 	import {
-		ChatSettingsTrigger,
+		ChatSettings,
 		type SidebarChatHistoryItem,
 	} from '$components/layout';
 	import type { WithElementRef } from 'bits-ui';
@@ -84,7 +84,7 @@
 			>
 				<span>{title}</span>
 
-				<ChatSettingsTrigger
+				<ChatSettings
 					bind:isOptionsMenuOpen
 					bind:isOptionsTooltipVisible
 				/>
