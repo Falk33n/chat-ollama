@@ -16,7 +16,7 @@
 	let { children }: AppProviderProps = $props();
 </script>
 
-<TooltipProvider>
+<TooltipProvider delayDuration={0}>
 	<SidebarProvider>
 		<ModeProvider />
 
