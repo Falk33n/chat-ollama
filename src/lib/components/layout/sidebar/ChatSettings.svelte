@@ -69,7 +69,6 @@
 	<DropdownMenuContent
 		sideOffset={-6}
 		align="start"
-		class="w-24"
 	>
 		<DropdownMenuArrow aria-hidden />
 
@@ -84,7 +83,7 @@
 						<Button
 							variant="ghost"
 							class={cn(
-								'h-10 w-full justify-start',
+								'flex h-10 w-full justify-start',
 								Icon === TrashIcon &&
 									'text-destructive hover:text-destructive hover:bg-destructive/5',
 							)}
