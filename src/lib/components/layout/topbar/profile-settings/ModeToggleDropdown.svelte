@@ -3,7 +3,7 @@
 	module
 >
 	import {
-		ChevronDownIcon,
+		ChevronLeftIcon,
 		CpuIcon,
 		Icon,
 		MoonIcon,
@@ -49,11 +49,9 @@
 	} from '$components/ui/dropdown-menu';
 	import { cn } from '$utils';
 	import { setMode } from 'mode-watcher';
-
-	let isOpen = $state(false);
 </script>
 
-<DropdownMenuSub bind:open={isOpen}>
+<DropdownMenuSub>
 	<DropdownMenuSubTrigger
 		class={cn(
 			buttonVariants({ variant: 'ghost' }),
@@ -62,11 +60,8 @@
 		aria-label="Open color theme settings"
 	>
 		<span class="flex items-center gap-2">
-			<ChevronDownIcon
-				class={cn(
-					'size-4 transition-transform duration-200',
-					isOpen && 'rotate-180',
-				)}
+			<ChevronLeftIcon
+				class="size-4 transition-transform duration-200"
 				aria-hidden
 			/>
 
@@ -74,11 +69,7 @@
 		</span>
 	</DropdownMenuSubTrigger>
 
-	<DropdownMenuSubContent
-		side="bottom"
-		align="start"
-		style="width: calc(var(--bits-floating-anchor-width) + 0.6rem)"
-	>
+	<DropdownMenuSubContent side="left">
 		{#each modes as { icon: Icon, content, ariaLabel, mode } (content)}
 			<DropdownMenuItem onclick={() => setMode(mode)}>
 				{#snippet child({ props: { class: _class, ...props } })}

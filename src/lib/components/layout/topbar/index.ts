@@ -7,3 +7,5 @@ export { default as ModelPickerTrigger } from '$components/layout/topbar/ModelPi
 export { default as NewChatTrigger } from '$components/layout/topbar/NewChatTrigger.svelte';
 
 export { default as ChatActions } from '$components/layout/topbar/ChatActions.svelte';
+
+export { default as TemporaryChatTrigger } from '$components/layout/topbar/TemporaryChatTrigger.svelte';

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ChatActions } from '$components/layout/topbar';
+	import { ChatActions, TemporaryChatTrigger } from '$components/layout/topbar';
 	import { ProfileSettings } from '$components/layout/topbar/profile-settings';
 </script>
 
@@ -9,6 +9,8 @@
 	<ChatActions />
 
 	<div class="flex items-center gap-2">
+		<TemporaryChatTrigger />
+
 		<ProfileSettings />
 	</div>
 </div>
