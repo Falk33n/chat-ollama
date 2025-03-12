@@ -2,6 +2,8 @@
 	lang="ts"
 	module
 >
+	import type { Snippet } from 'svelte';
+
 	type AppSidebarTriggerProps = { children?: Snippet; class?: string };
 </script>
 
@@ -9,7 +11,6 @@
 	import { AppTooltip } from '$components/global';
 	import { SidebarTrigger, useSidebar } from '$components/ui/sidebar';
 	import { cn } from '$utils';
-	import type { Snippet } from 'svelte';
 
 	let { children, class: className }: AppSidebarTriggerProps = $props();
 

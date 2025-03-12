@@ -3,10 +3,11 @@
 	module
 >
 	import {
-		ChatSettings,
+		AppSidebarChatSettings,
 		type SidebarChatHistoryItem,
-	} from '$components/layout';
+	} from '$components/layout/sidebar';
 	import type { WithElementRef } from 'bits-ui';
+	import { getContext, hasContext, setContext } from 'svelte';
 
 	type AppSidebarMenuItemContextProps = Omit<
 		SidebarChatHistoryItem,
@@ -40,7 +41,6 @@
 <script lang="ts">
 	import { SidebarMenuButton, SidebarMenuItem } from '$components/ui/sidebar';
 	import { cn } from '$utils';
-	import { getContext, hasContext, setContext } from 'svelte';
 
 	let {
 		ref = $bindable(null),
@@ -84,7 +84,7 @@
 			>
 				<span>{title}</span>
 
-				<ChatSettings
+				<AppSidebarChatSettings
 					bind:isOptionsMenuOpen
 					bind:isOptionsTooltipVisible
 				/>

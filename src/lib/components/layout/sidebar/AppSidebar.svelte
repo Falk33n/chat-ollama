@@ -1,5 +1,8 @@
 <script lang="ts">
-	import { AppSidebarContent, AppSidebarHeader } from '$components/layout';
+	import {
+		AppSidebarContent,
+		AppSidebarHeader,
+	} from '$components/layout/sidebar';
 	import { Sidebar } from '$components/ui/sidebar';
 </script>
 

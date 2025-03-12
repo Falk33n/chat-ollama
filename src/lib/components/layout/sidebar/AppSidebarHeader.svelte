@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { AppTooltip } from '$components/global';
-	import { AppSidebarTrigger, NewChatTrigger } from '$components/layout';
+	import { NewChatTrigger } from '$components/layout';
+	import { AppSidebarTrigger } from '$components/layout/sidebar';
 	import { Button } from '$components/ui/button';
 	import { SidebarHeader } from '$components/ui/sidebar';
 	import { PanelLeftCloseIcon, SearchIcon } from 'lucide-svelte';

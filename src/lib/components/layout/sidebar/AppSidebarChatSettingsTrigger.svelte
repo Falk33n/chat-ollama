@@ -2,8 +2,8 @@
 	import { AppTooltip } from '$components/global';
 	import {
 		getAppSidebarMenuItemContext,
-		type ChatSettingsProps,
-	} from '$components/layout';
+		type AppSidebarChatSettingsProps,
+	} from '$components/layout/sidebar';
 	import { buttonVariants } from '$components/ui/button';
 	import { DropdownMenuTrigger } from '$components/ui/dropdown-menu';
 	import { cn } from '$utils';
@@ -12,7 +12,7 @@
 	let {
 		isOptionsMenuOpen = $bindable(false),
 		isOptionsTooltipVisible = $bindable(false),
-	}: ChatSettingsProps = $props();
+	}: AppSidebarChatSettingsProps = $props();
 
 	const context = getAppSidebarMenuItemContext();
 </script>

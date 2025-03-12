@@ -78,7 +78,7 @@
 </script>
 
 <script lang="ts">
-	import { AppSidebarMenuItem } from '$components/layout';
+	import { AppSidebarMenuItem } from '$components/layout/sidebar';
 	import {
 		SidebarContent,
 		SidebarGroup,

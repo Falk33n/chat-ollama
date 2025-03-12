@@ -1,9 +1,6 @@
 <script lang="ts">
-	import {
-		AppSidebarTrigger,
-		ModelPicker,
-		NewChatTrigger,
-	} from '$components/layout';
+	import { ModelPicker, NewChatTrigger } from '$components/layout';
+	import { AppSidebarTrigger } from '$components/layout/sidebar';
 	import { useSidebar } from '$components/ui/sidebar';
 	import { PanelRightCloseIcon } from 'lucide-svelte';
 
