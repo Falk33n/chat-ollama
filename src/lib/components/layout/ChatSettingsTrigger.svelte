@@ -30,11 +30,10 @@
 			<span
 				class={cn(
 					buttonVariants({ variant: 'ghost', size: 'icon' }),
-					'text-sidebar-accent-foreground/70 hover:text-sidebar-accent-foreground focus-visible:text-sidebar-accent-foreground -mr-2 cursor-pointer rounded-full bg-[unset] shadow-[unset] hover:bg-[unset] focus-visible:bg-[unset]',
+					'text-sidebar-accent-foreground/70 hover:text-sidebar-accent-foreground focus-visible:text-sidebar-accent-foreground -mr-0.5 size-6 cursor-pointer rounded-full bg-[unset] shadow-[unset] hover:bg-[unset] focus-visible:bg-[unset]',
 					(isOptionsMenuOpen || isOptionsTooltipVisible) &&
 						'text-sidebar-accent-foreground',
 				)}
-				aria-hidden={true}
 				{...props}
 			>
 				{#if context?.isOptionsVisible.value || isOptionsMenuOpen || isOptionsTooltipVisible}
