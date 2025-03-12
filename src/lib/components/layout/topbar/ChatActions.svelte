@@ -2,7 +2,7 @@
 	import { SidebarTrigger } from '$components/layout/sidebar';
 	import { ModelPicker, NewChatTrigger } from '$components/layout/topbar';
 	import { useSidebar } from '$components/ui/sidebar';
-	import { PanelRightCloseIcon } from 'lucide-svelte';
+	import { AlignLeftIcon, PanelRightCloseIcon } from 'lucide-svelte';
 
 	const sidebar = useSidebar();
 </script>
@@ -11,12 +11,24 @@
 	<div class="flex items-center gap-2">
 		{#if !sidebar.open}
 			<SidebarTrigger>
-				<PanelRightCloseIcon aria-hidden />
+				{#if !sidebar.isMobile}
+					<PanelRightCloseIcon aria-hidden />
+				{:else}
+					<AlignLeftIcon aria-hidden />
+				{/if}
 			</SidebarTrigger>
 
-			<NewChatTrigger />
+			{#if !sidebar.isMobile}
+				<NewChatTrigger />
+			{/if}
 		{/if}
 
-		<ModelPicker />
+		{#if !sidebar.isMobile}
+			<ModelPicker />
+		{/if}
 	</div>
+
+	{#if sidebar.isMobile}
+		<ModelPicker />
+	{/if}
 {/if}

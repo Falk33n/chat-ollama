@@ -3,15 +3,24 @@
 	import { SidebarTrigger } from '$components/layout/sidebar';
 	import { NewChatTrigger } from '$components/layout/topbar';
 	import { Button } from '$components/ui/button';
-	import { SidebarHeader as SidebarPrimitiveHeader } from '$components/ui/sidebar';
-	import { PanelLeftCloseIcon, SearchIcon } from 'lucide-svelte';
+	import {
+		SidebarHeader as SidebarPrimitiveHeader,
+		useSidebar,
+	} from '$components/ui/sidebar';
+	import { AlignLeftIcon, PanelLeftCloseIcon, SearchIcon } from 'lucide-svelte';
+
+	const sidebar = useSidebar();
 </script>
 
 <SidebarPrimitiveHeader
 	class="mb-4 flex-row items-center justify-between gap-2"
 >
 	<SidebarTrigger class="bg-sidebar hover:bg-background">
-		<PanelLeftCloseIcon aria-hidden />
+		{#if !sidebar.isMobile}
+			<PanelLeftCloseIcon aria-hidden />
+		{:else}
+			<AlignLeftIcon aria-hidden />
+		{/if}
 	</SidebarTrigger>
 
 	<div class="flex items-center justify-center gap-2">

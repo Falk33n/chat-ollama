@@ -63,7 +63,7 @@
 </script>
 
 <SheetPrimitive.Portal {...portalProps}>
-	<SheetOverlay />
+	<SheetOverlay class="dark:bg-black/50" />
 
 	<SheetPrimitive.Content
 		bind:ref
