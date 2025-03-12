@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { AppTooltip } from '$components/global';
+	import { Tooltip } from '$components/global';
 	import {
-		getAppSidebarMenuItemContext,
-		type AppSidebarChatSettingsProps,
+		getSidebarMenuItemContext,
+		type ChatSettingsProps,
 	} from '$components/layout/sidebar';
 	import { buttonVariants } from '$components/ui/button';
 	import { DropdownMenuTrigger } from '$components/ui/dropdown-menu';
@@ -12,16 +12,16 @@
 	let {
 		isOptionsMenuOpen = $bindable(false),
 		isOptionsTooltipVisible = $bindable(false),
-	}: AppSidebarChatSettingsProps = $props();
+	}: ChatSettingsProps = $props();
 
-	const context = getAppSidebarMenuItemContext();
+	const context = getSidebarMenuItemContext();
 </script>
 
 <DropdownMenuTrigger
 	aria-label="Open chat settings"
 	disabled={!isOptionsMenuOpen && !context?.isOptionsVisible.value}
 >
-	<AppTooltip
+	<Tooltip
 		bind:open={isOptionsTooltipVisible}
 		content="Open chat settings"
 		contentProps={{ sideOffset: -6 }}
@@ -44,5 +44,5 @@
 				{/if}
 			</span>
 		{/snippet}
-	</AppTooltip>
+	</Tooltip>
 </DropdownMenuTrigger>

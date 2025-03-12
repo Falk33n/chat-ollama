@@ -3,56 +3,55 @@
 	module
 >
 	import {
-		AppSidebarChatSettings,
+		ChatSettings,
 		type SidebarChatHistoryItem,
 	} from '$components/layout/sidebar';
 	import type { WithElementRef } from 'bits-ui';
 	import { getContext, hasContext, setContext } from 'svelte';
 
-	type AppSidebarMenuItemContextProps = Omit<
+	type SidebarMenuItemContextProps = Omit<
 		SidebarChatHistoryItem,
 		'updatedAt'
 	> & {
 		isOptionsVisible: { value: boolean };
 	};
 
-	type AppSidebarMenuItemProps = WithElementRef<
-		Omit<AppSidebarMenuItemContextProps, 'isOptionsVisible'>,
+	type SidebarMenuItemProps = WithElementRef<
+		Omit<SidebarMenuItemContextProps, 'isOptionsVisible'>,
 		HTMLAnchorElement
 	>;
 
-	const APP_SIDEBAR_MENU_ITEM_CONTEXT_NAME = 'app-sidebar-menu-item-context';
+	const SIDEBAR_MENU_ITEM_CONTEXT_NAME = 'sidebar-menu-item-context';
 
-	function setAppSidebarMenuItemContext(props: AppSidebarMenuItemContextProps) {
-		setContext<AppSidebarMenuItemContextProps>(
-			APP_SIDEBAR_MENU_ITEM_CONTEXT_NAME,
+	function setSidebarMenuItemContext(props: SidebarMenuItemContextProps) {
+		setContext<SidebarMenuItemContextProps>(
+			SIDEBAR_MENU_ITEM_CONTEXT_NAME,
 			props,
 		);
 	}
 
-	export function getAppSidebarMenuItemContext() {
-		if (!hasContext(APP_SIDEBAR_MENU_ITEM_CONTEXT_NAME)) return;
-		return getContext<AppSidebarMenuItemContextProps>(
-			APP_SIDEBAR_MENU_ITEM_CONTEXT_NAME,
+	export function getSidebarMenuItemContext() {
+		if (!hasContext(SIDEBAR_MENU_ITEM_CONTEXT_NAME)) return;
+		return getContext<SidebarMenuItemContextProps>(
+			SIDEBAR_MENU_ITEM_CONTEXT_NAME,
 		);
 	}
 </script>
 
 <script lang="ts">
-	import { SidebarMenuButton, SidebarMenuItem } from '$components/ui/sidebar';
+	import {
+		SidebarMenuButton as SidebarPrimitiveMenuButton,
+		SidebarMenuItem as SidebarPrimitiveMenuItem,
+	} from '$components/ui/sidebar';
 	import { cn } from '$utils';
 
-	let {
-		ref = $bindable(null),
-		title,
-		chatId,
-	}: AppSidebarMenuItemProps = $props();
+	let { ref = $bindable(null), title, chatId }: SidebarMenuItemProps = $props();
 
 	let isOptionsVisible = $state({ value: false });
 	let isOptionsMenuOpen = $state(false);
 	let isOptionsTooltipVisible = $state(false);
 
-	setAppSidebarMenuItemContext({
+	setSidebarMenuItemContext({
 		title,
 		chatId,
 		isOptionsVisible,
@@ -65,8 +64,8 @@
 	}
 </script>
 
-<SidebarMenuItem>
-	<SidebarMenuButton
+<SidebarPrimitiveMenuItem>
+	<SidebarPrimitiveMenuButton
 		onpointerenter={() => (isOptionsVisible.value = true)}
 		onpointerleave={handlePointerLeave}
 		onfocus={() => (isOptionsVisible.value = true)}
@@ -84,11 +83,11 @@
 			>
 				<span>{title}</span>
 
-				<AppSidebarChatSettings
+				<ChatSettings
 					bind:isOptionsMenuOpen
 					bind:isOptionsTooltipVisible
 				/>
 			</a>
 		{/snippet}
-	</SidebarMenuButton>
-</SidebarMenuItem>
+	</SidebarPrimitiveMenuButton>
+</SidebarPrimitiveMenuItem>

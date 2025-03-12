@@ -1,1 +1,1 @@
-export { default as AppTooltip } from '$components/global/AppTooltip.svelte';
+export { default as Tooltip } from '$components/global/Tooltip.svelte';

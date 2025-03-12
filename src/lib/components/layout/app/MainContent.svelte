@@ -4,14 +4,14 @@
 >
 	import type { Snippet } from 'svelte';
 
-	type AppProviderProps = { children?: Snippet };
+	type ProviderProps = { children?: Snippet };
 </script>
 
 <script lang="ts">
-	import { Topbar } from '$components/layout';
+	import { Topbar } from '$components/layout/topbar';
 	import '$styles';
 
-	let { children }: AppProviderProps = $props();
+	let { children }: ProviderProps = $props();
 </script>
 
 <main

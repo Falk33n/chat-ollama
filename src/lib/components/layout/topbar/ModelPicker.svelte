@@ -18,7 +18,7 @@
 </script>
 
 <script>
-	import { ModelPickerTrigger } from '$components/layout';
+	import { ModelPickerTrigger } from '$components/layout/topbar';
 	import { Button } from '$components/ui/button';
 	import {
 		DropdownMenu,

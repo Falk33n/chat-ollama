@@ -1,19 +1,21 @@
 <script lang="ts">
-	import { AppTooltip } from '$components/global';
-	import { NewChatTrigger } from '$components/layout';
-	import { AppSidebarTrigger } from '$components/layout/sidebar';
+	import { Tooltip } from '$components/global';
+	import { SidebarTrigger } from '$components/layout/sidebar';
+	import { NewChatTrigger } from '$components/layout/topbar';
 	import { Button } from '$components/ui/button';
-	import { SidebarHeader } from '$components/ui/sidebar';
+	import { SidebarHeader as SidebarPrimitiveHeader } from '$components/ui/sidebar';
 	import { PanelLeftCloseIcon, SearchIcon } from 'lucide-svelte';
 </script>
 
-<SidebarHeader class="mb-4 flex-row items-center justify-between gap-2">
-	<AppSidebarTrigger class="bg-sidebar hover:bg-background">
+<SidebarPrimitiveHeader
+	class="mb-4 flex-row items-center justify-between gap-2"
+>
+	<SidebarTrigger class="bg-sidebar hover:bg-background">
 		<PanelLeftCloseIcon aria-hidden />
-	</AppSidebarTrigger>
+	</SidebarTrigger>
 
 	<div class="flex items-center justify-center gap-2">
-		<AppTooltip content="Search in chats">
+		<Tooltip content="Search in chats">
 			{#snippet trigger({ props: { onclick: _onclick, ...props } })}
 				<Button
 					variant="outline"
@@ -25,8 +27,8 @@
 					<SearchIcon aria-hidden />
 				</Button>
 			{/snippet}
-		</AppTooltip>
+		</Tooltip>
 
 		<NewChatTrigger class="bg-sidebar hover:bg-background" />
 	</div>
-</SidebarHeader>
+</SidebarPrimitiveHeader>

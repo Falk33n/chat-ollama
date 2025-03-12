@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { AppTooltip } from '$components/global';
+	import { Tooltip } from '$components/global';
 	import { Avatar, AvatarFallback, AvatarImage } from '$components/ui/avatar';
 	import { Button } from '$components/ui/button';
 </script>
 
-<AppTooltip content="Open profile settings">
+<Tooltip content="Open profile settings">
 	{#snippet trigger({ props: { onclick: _onclick, ...props } })}
 		<Button
 			variant="outline"
@@ -25,4 +25,4 @@
 			</Avatar>
 		</Button>
 	{/snippet}
-</AppTooltip>
+</Tooltip>

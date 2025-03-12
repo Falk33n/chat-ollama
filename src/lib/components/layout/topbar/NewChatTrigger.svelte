@@ -6,7 +6,7 @@
 </script>
 
 <script lang="ts">
-	import { AppTooltip } from '$components/global';
+	import { Tooltip } from '$components/global';
 	import { Button } from '$components/ui/button';
 	import { cn } from '$utils';
 	import { SquarePenIcon } from 'lucide-svelte';
@@ -14,7 +14,7 @@
 	let { class: className }: NewChatTriggerProps = $props();
 </script>
 
-<AppTooltip content="New chat">
+<Tooltip content="New chat">
 	{#snippet trigger({ props: { onclick: _onclick, ...props } })}
 		<Button
 			variant="outline"
@@ -26,4 +26,4 @@
 			<SquarePenIcon aria-hidden />
 		</Button>
 	{/snippet}
-</AppTooltip>
+</Tooltip>
