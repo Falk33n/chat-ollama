@@ -1,10 +1,5 @@
 <script lang="ts">
-	import {
-		AppSidebar,
-		AppSidebarActions,
-		ModeToggle,
-		ProfileSettingsTrigger,
-	} from '$components/layout';
+	import { AppSidebar, Topbar } from '$components/layout';
 	import { SidebarProvider } from '$components/ui/sidebar';
 	import '$styles';
 	import { ModeWatcher } from 'mode-watcher';
@@ -22,17 +17,7 @@
 		id="main-content"
 		class="w-full"
 	>
-		<div
-			class="bg-background sticky top-0 flex items-center justify-between gap-2 p-2"
-		>
-			<AppSidebarActions />
-
-			<div class="flex items-center gap-2">
-				<ModeToggle />
-
-				<ProfileSettingsTrigger />
-			</div>
-		</div>
+		<Topbar />
 
 		{@render children()}
 	</main>
