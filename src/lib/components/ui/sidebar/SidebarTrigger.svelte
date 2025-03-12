@@ -12,12 +12,12 @@
 <script lang="ts">
 	import { useSidebar } from '$components/ui/sidebar';
 	import { cn } from '$utils';
-	import { PanelLeftOpenIcon } from 'lucide-svelte';
 
 	let {
 		ref = $bindable(null),
 		'class': className,
 		onclick,
+		children,
 		'aria-label': ariaLabel = 'Toggle Sidebar',
 		...restProps
 	}: SidebarTriggerProps = $props();
@@ -38,5 +38,5 @@
 	aria-label={ariaLabel}
 	{...restProps}
 >
-	<PanelLeftOpenIcon aria-hidden />
+	{@render children?.()}
 </Button>

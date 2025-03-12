@@ -1,15 +1,29 @@
-<script lang="ts">
-	import { AppTooltip } from '$components/global';
-	import { SidebarTrigger } from '$components/ui/sidebar';
+<script
+	lang="ts"
+	module
+>
+	type AppSidebarTriggerProps = { children?: Snippet; class?: string };
 </script>
 
-<div class="fixed top-2 left-2">
-	<AppTooltip content="Open Sidebar">
-		{#snippet trigger({ props: { onclick: _onclick, ...props } })}
-			<SidebarTrigger
-				aria-label="Open Sidebar"
-				{...props}
-			/>
-		{/snippet}
-	</AppTooltip>
-</div>
+<script lang="ts">
+	import { AppTooltip } from '$components/global';
+	import { SidebarTrigger, useSidebar } from '$components/ui/sidebar';
+	import { cn } from '$utils';
+	import type { Snippet } from 'svelte';
+
+	let { children, class: className }: AppSidebarTriggerProps = $props();
+
+	const sidebar = useSidebar();
+</script>
+
+<AppTooltip content={sidebar.open ? 'Close Sidebar' : 'Open Sidebar'}>
+	{#snippet trigger({ props: { onclick: _onclick, ...props } })}
+		<SidebarTrigger
+			class={className ? cn(className) : undefined}
+			aria-label={sidebar.open ? 'Close Sidebar' : 'Open Sidebar'}
+			{...props}
+		>
+			{@render children?.()}
+		</SidebarTrigger>
+	{/snippet}
+</AppTooltip>

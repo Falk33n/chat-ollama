@@ -4,6 +4,10 @@ export { default as AppSidebarTrigger } from '$components/layout/AppSidebarTrigg
 
 export { default as AppSidebarHeader } from '$components/layout/AppSidebarHeader.svelte';
 
+export { default as ModelPicker } from '$components/layout/ModelPicker.svelte';
+
+export { default as ModelPickerTrigger } from '$components/layout/ModelPickerTrigger.svelte';
+
 export {
 	default as AppSidebarContent,
 	type SidebarChatHistoryItem,
@@ -17,6 +21,8 @@ export {
 } from '$components/layout/ChatSettings.svelte';
 
 export { default as ChatSettingsTrigger } from '$components/layout/ChatSettingsTrigger.svelte';
+
+export { default as AppSidebarActions } from '$components/layout/AppSidebarActions.svelte';
 
 export { default as NewChatTrigger } from '$components/layout/NewChatTrigger.svelte';
 
