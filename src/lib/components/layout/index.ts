@@ -1,5 +1,7 @@
 export { default as AppSidebar } from '$components/layout/AppSidebar.svelte';
 
+export { default as Topbar } from '$components/layout/Topbar.svelte';
+
 export { default as AppSidebarTrigger } from '$components/layout/AppSidebarTrigger.svelte';
 
 export { default as AppSidebarHeader } from '$components/layout/AppSidebarHeader.svelte';
