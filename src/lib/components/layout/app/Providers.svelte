@@ -4,7 +4,7 @@
 >
 	import type { Snippet } from 'svelte';
 
-	type AppProviderProps = { children?: Snippet };
+	type ProvidersProps = { children?: Snippet };
 </script>
 
 <script lang="ts">
@@ -13,7 +13,7 @@
 	import '$styles';
 	import { ModeWatcher as ModeProvider } from 'mode-watcher';
 
-	let { children }: AppProviderProps = $props();
+	let { children }: ProvidersProps = $props();
 </script>
 
 <TooltipProvider delayDuration={0}>

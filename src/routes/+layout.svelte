@@ -1,15 +1,15 @@
 <script lang="ts">
-	import { AppMainContent, AppProvider } from '$components/layout';
-	import { AppSidebar } from '$components/layout/sidebar';
+	import { MainContent, Providers } from '$components/layout/app';
+	import { Sidebar } from '$components/layout/sidebar';
 	import type { LayoutProps } from './$types';
 
 	let { children }: LayoutProps = $props();
 </script>
 
-<AppProvider>
-	<AppSidebar />
+<Providers>
+	<Sidebar />
 
-	<AppMainContent>
+	<MainContent>
 		{@render children()}
-	</AppMainContent>
-</AppProvider>
+	</MainContent>
+</Providers>

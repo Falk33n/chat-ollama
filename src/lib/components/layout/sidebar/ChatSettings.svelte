@@ -4,7 +4,7 @@
 >
 	import { ArchiveIcon, PenIcon, TrashIcon, type Icon } from 'lucide-svelte';
 
-	export type AppSidebarChatSettingsProps = {
+	export type ChatSettingsProps = {
 		isOptionsMenuOpen?: boolean;
 		isOptionsTooltipVisible?: boolean;
 	};
@@ -29,8 +29,8 @@
 
 <script lang="ts">
 	import {
-		AppSidebarChatSettingsTrigger,
-		getAppSidebarMenuItemContext,
+		ChatSettingsTrigger,
+		getSidebarMenuItemContext,
 	} from '$components/layout/sidebar';
 	import { Button } from '$components/ui/button';
 	import {
@@ -46,9 +46,9 @@
 	let {
 		isOptionsMenuOpen = $bindable(false),
 		isOptionsTooltipVisible = $bindable(false),
-	}: AppSidebarChatSettingsProps = $props();
+	}: ChatSettingsProps = $props();
 
-	const context = getAppSidebarMenuItemContext();
+	const context = getSidebarMenuItemContext();
 
 	function onDropdownMenuOpenChange() {
 		if (context) {
@@ -61,7 +61,7 @@
 	bind:open={isOptionsMenuOpen}
 	onOpenChange={onDropdownMenuOpenChange}
 >
-	<AppSidebarChatSettingsTrigger
+	<ChatSettingsTrigger
 		bind:isOptionsMenuOpen
 		bind:isOptionsTooltipVisible
 	/>

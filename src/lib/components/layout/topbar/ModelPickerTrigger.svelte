@@ -6,7 +6,7 @@
 </script>
 
 <script lang="ts">
-	import { AppTooltip } from '$components/global';
+	import { Tooltip } from '$components/global';
 	import { buttonVariants } from '$components/ui/button';
 	import { DropdownMenuTrigger } from '$components/ui/dropdown-menu';
 	import { cn } from '$utils';
@@ -16,7 +16,7 @@
 </script>
 
 <DropdownMenuTrigger aria-label="Open Model Picker">
-	<AppTooltip content="Open Model Picker">
+	<Tooltip content="Open Model Picker">
 		{#snippet trigger({ props })}
 			<span
 				class={cn(buttonVariants({ variant: 'outline' }), 'gap-1 px-3')}
@@ -33,5 +33,5 @@
 				/>
 			</span>
 		{/snippet}
-	</AppTooltip>
+	</Tooltip>
 </DropdownMenuTrigger>

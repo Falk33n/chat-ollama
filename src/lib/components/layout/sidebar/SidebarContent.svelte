@@ -2,7 +2,7 @@
 	lang="ts"
 	module
 >
-	type AppSidebarContentProps = { ref?: HTMLDivElement | null };
+	type SidebarContentProps = { ref?: HTMLDivElement | null };
 
 	type Chat = { group: string; items: SidebarChatHistoryItem[] };
 
@@ -78,18 +78,18 @@
 </script>
 
 <script lang="ts">
-	import { AppSidebarMenuItem } from '$components/layout/sidebar';
+	import { SidebarMenuItem } from '$components/layout/sidebar';
 	import {
-		SidebarContent,
-		SidebarGroup,
-		SidebarGroupContent,
-		SidebarGroupLabel,
-		SidebarMenu,
+		SidebarContent as SidebarPrimitiveContent,
+		SidebarGroup as SidebarPrimitiveGroup,
+		SidebarGroupContent as SidebarPrimitiveGroupContent,
+		SidebarGroupLabel as SidebarPrimitiveGroupLabel,
+		SidebarMenu as SidebarPrimitiveMenu,
 	} from '$components/ui/sidebar';
 	import { LoaderIcon } from 'lucide-svelte';
 	import { onMount } from 'svelte';
 
-	let { ref = $bindable(null) }: AppSidebarContentProps = $props();
+	let { ref = $bindable(null) }: SidebarContentProps = $props();
 
 	let chats = $state<Chat[]>([]);
 	let hasMoreChats = $state(true);
@@ -153,33 +153,33 @@
 	});
 </script>
 
-<SidebarContent
+<SidebarPrimitiveContent
 	bind:ref
 	class="gap-0"
 	aria-busy={isChatsBeingFetched}
 	onscroll={async () => await handleScroll()}
 >
 	{#each chats as { group, items } (group)}
-		<SidebarGroup class="pt-[unset] pb-5">
-			<SidebarGroupLabel
+		<SidebarPrimitiveGroup class="pt-[unset] pb-5">
+			<SidebarPrimitiveGroupLabel
 				class="bg-sidebar sticky top-0 z-[10] mb-0.5 h-7 font-semibold"
 			>
 				{group}
-			</SidebarGroupLabel>
+			</SidebarPrimitiveGroupLabel>
 
-			<SidebarGroupContent>
-				<SidebarMenu class="gap-[unset]">
+			<SidebarPrimitiveGroupContent>
+				<SidebarPrimitiveMenu class="gap-[unset]">
 					{#each items as { title, chatId } (chatId)}
-						<AppSidebarMenuItem
+						<SidebarMenuItem
 							{title}
 							{chatId}
 						/>
 					{/each}
-				</SidebarMenu>
-			</SidebarGroupContent>
-		</SidebarGroup>
+				</SidebarPrimitiveMenu>
+			</SidebarPrimitiveGroupContent>
+		</SidebarPrimitiveGroup>
 	{/each}
-</SidebarContent>
+</SidebarPrimitiveContent>
 
 {#if isChatsBeingFetched}
 	<div

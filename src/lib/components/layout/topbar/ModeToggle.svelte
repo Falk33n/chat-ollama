@@ -1,21 +1,21 @@
 <script lang="ts">
-	import { AppTooltip } from '$components/global';
+	import { Tooltip } from '$components/global';
 	import { Button } from '$components/ui/button';
 	import { MoonIcon, SunIcon } from 'lucide-svelte';
 	import { mode, toggleMode } from 'mode-watcher';
-
-	const label = $derived(
-		$mode === 'dark' ? 'Change to light theme' : 'Change to dark theme',
-	);
 </script>
 
-<AppTooltip content={label}>
+<Tooltip
+	content={$mode === 'dark' ? 'Change to light theme' : 'Change to dark theme'}
+>
 	{#snippet trigger({ props: { onclick: _onclick, ...props } })}
 		<Button
 			onclick={toggleMode}
 			variant="outline"
 			size="icon"
-			aria-label={label}
+			aria-label={$mode === 'dark'
+				? 'Change to light theme'
+				: 'Change to dark theme'}
 			{...props}
 		>
 			<SunIcon
@@ -29,4 +29,4 @@
 			/>
 		</Button>
 	{/snippet}
-</AppTooltip>
+</Tooltip>

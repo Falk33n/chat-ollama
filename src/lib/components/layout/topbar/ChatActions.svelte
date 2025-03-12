@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { ModelPicker, NewChatTrigger } from '$components/layout';
-	import { AppSidebarTrigger } from '$components/layout/sidebar';
+	import { SidebarTrigger } from '$components/layout/sidebar';
+	import { ModelPicker, NewChatTrigger } from '$components/layout/topbar';
 	import { useSidebar } from '$components/ui/sidebar';
 	import { PanelRightCloseIcon } from 'lucide-svelte';
 
@@ -10,9 +10,9 @@
 {#if !sidebar.openMobile}
 	<div class="flex items-center gap-2">
 		{#if !sidebar.open}
-			<AppSidebarTrigger>
+			<SidebarTrigger>
 				<PanelRightCloseIcon aria-hidden />
-			</AppSidebarTrigger>
+			</SidebarTrigger>
 
 			<NewChatTrigger />
 		{/if}
