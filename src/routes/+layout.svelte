@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { AppMainContent, AppProvider, AppSidebar } from '$components/layout';
+	import { AppMainContent, AppProvider } from '$components/layout';
+	import { AppSidebar } from '$components/layout/sidebar';
 	import type { LayoutProps } from './$types';
 
 	let { children }: LayoutProps = $props();

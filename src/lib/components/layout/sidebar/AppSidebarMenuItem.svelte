@@ -3,9 +3,9 @@
 	module
 >
 	import {
-		ChatSettings,
+		AppSidebarChatSettings,
 		type SidebarChatHistoryItem,
-	} from '$components/layout';
+	} from '$components/layout/sidebar';
 	import type { WithElementRef } from 'bits-ui';
 	import { getContext, hasContext, setContext } from 'svelte';
 
@@ -84,7 +84,7 @@
 			>
 				<span>{title}</span>
 
-				<ChatSettings
+				<AppSidebarChatSettings
 					bind:isOptionsMenuOpen
 					bind:isOptionsTooltipVisible
 				/>

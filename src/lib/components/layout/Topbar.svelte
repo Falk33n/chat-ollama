@@ -1,9 +1,6 @@
 <script lang="ts">
-	import {
-		AppSidebarActions,
-		ModeToggle,
-		ProfileSettingsTrigger,
-	} from '$components/layout';
+	import { ModeToggle, ProfileSettingsTrigger } from '$components/layout';
+	import { AppSidebarActions } from '$components/layout/sidebar';
 </script>
 
 <div
