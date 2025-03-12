@@ -1,6 +1,9 @@
 <script lang="ts">
 	import { ChatActions, TemporaryChatTrigger } from '$components/layout/topbar';
 	import { ProfileSettings } from '$components/layout/topbar/profile-settings';
+	import { useSidebar } from '$components/ui/sidebar';
+
+	const sidebar = useSidebar();
 </script>
 
 <div
@@ -11,6 +14,8 @@
 	<div class="flex items-center gap-2">
 		<TemporaryChatTrigger />
 
-		<ProfileSettings />
+		{#if !sidebar.isMobile}
+			<ProfileSettings />
+		{/if}
 	</div>
 </div>

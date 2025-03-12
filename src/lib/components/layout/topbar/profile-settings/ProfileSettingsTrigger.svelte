@@ -10,7 +10,7 @@
 	aria-label="Open settings"
 	class={cn(
 		buttonVariants({ variant: 'outline', size: 'icon' }),
-		'border-foreground rounded-full',
+		'border-foreground size-8 rounded-full',
 	)}
 >
 	<Tooltip content="Open settings">
