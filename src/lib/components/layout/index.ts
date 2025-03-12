@@ -1,3 +1,7 @@
+export { default as AppProvider } from '$components/layout/AppProvider.svelte';
+
+export { default as AppMainContent } from '$components/layout/AppMainContent.svelte';
+
 export { default as AppSidebar } from '$components/layout/AppSidebar.svelte';
 
 export { default as Topbar } from '$components/layout/Topbar.svelte';

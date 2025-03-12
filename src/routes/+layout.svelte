@@ -1,24 +1,14 @@
 <script lang="ts">
-	import { AppSidebar, Topbar } from '$components/layout';
-	import { SidebarProvider } from '$components/ui/sidebar';
-	import '$styles';
-	import { ModeWatcher } from 'mode-watcher';
+	import { AppMainContent, AppProvider, AppSidebar } from '$components/layout';
 	import type { LayoutProps } from './$types';
 
 	let { children }: LayoutProps = $props();
 </script>
 
-<ModeWatcher />
-
-<SidebarProvider>
+<AppProvider>
 	<AppSidebar />
 
-	<main
-		id="main-content"
-		class="w-full"
-	>
-		<Topbar />
-
+	<AppMainContent>
 		{@render children()}
-	</main>
-</SidebarProvider>
+	</AppMainContent>
+</AppProvider>
