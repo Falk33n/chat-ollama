@@ -40,8 +40,8 @@
 	<DropdownMenu bind:open={isOpen}>
 		<ModelPickerTrigger bind:isOpen />
 
-		<DropdownMenuContent class="w-24">
-			<DropdownMenuArrow />
+		<DropdownMenuContent>
+			<DropdownMenuArrow aria-hidden />
 
 			<DropdownMenuGroup>
 				<DropdownMenuGroupHeading>Choose Model</DropdownMenuGroupHeading>
@@ -53,7 +53,7 @@
 						{#snippet child({ props: { class: _class, ...props } })}
 							<Button
 								variant="ghost"
-								class="w-full justify-start"
+								class="flex w-full justify-start"
 								{...props}
 							>
 								{name}

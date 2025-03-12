@@ -1,0 +1,102 @@
+<script
+	lang="ts"
+	module
+>
+	import {
+		ChevronDownIcon,
+		CpuIcon,
+		Icon,
+		MoonIcon,
+		SunIcon,
+	} from 'lucide-svelte';
+
+	type Mode = {
+		icon: typeof Icon;
+		mode: 'light' | 'dark' | 'system';
+		content: string;
+		ariaLabel: string;
+	};
+
+	const modes: Mode[] = [
+		{
+			icon: SunIcon,
+			mode: 'light',
+			content: 'Light Theme',
+			ariaLabel: 'Change to light color theme',
+		},
+		{
+			icon: MoonIcon,
+			mode: 'dark',
+			content: 'Dark Theme',
+			ariaLabel: 'Change to dark color theme',
+		},
+		{
+			icon: CpuIcon,
+			mode: 'system',
+			content: 'System Theme',
+			ariaLabel: 'Reset to your system preferred color theme',
+		},
+	];
+</script>
+
+<script lang="ts">
+	import { Button, buttonVariants } from '$components/ui/button';
+	import {
+		DropdownMenuItem,
+		DropdownMenuSub,
+		DropdownMenuSubContent,
+		DropdownMenuSubTrigger,
+	} from '$components/ui/dropdown-menu';
+	import { cn } from '$utils';
+	import { setMode } from 'mode-watcher';
+
+	let isOpen = $state(false);
+</script>
+
+<DropdownMenuSub bind:open={isOpen}>
+	<DropdownMenuSubTrigger
+		class={cn(
+			buttonVariants({ variant: 'ghost' }),
+			'w-full justify-start [&>svg]:hidden',
+		)}
+		aria-label="Open color theme settings"
+	>
+		<span class="flex items-center gap-2">
+			<ChevronDownIcon
+				class={cn(
+					'size-4 transition-transform duration-200',
+					isOpen && 'rotate-180',
+				)}
+				aria-hidden
+			/>
+
+			Change color theme
+		</span>
+	</DropdownMenuSubTrigger>
+
+	<DropdownMenuSubContent
+		side="bottom"
+		align="start"
+		style="width: calc(var(--bits-floating-anchor-width) + 0.6rem)"
+	>
+		{#each modes as { icon: Icon, content, ariaLabel, mode } (content)}
+			<DropdownMenuItem onclick={() => setMode(mode)}>
+				{#snippet child({ props: { class: _class, ...props } })}
+					<Button
+						variant="ghost"
+						class="flex w-full justify-start"
+						aria-label={ariaLabel}
+						{...props}
+					>
+						<Icon
+							class="size-4"
+							aria-hidden
+						/>
+
+						{content}
+					</Button>
+				{/snippet}
+			</DropdownMenuItem>
+		{/each}
+	</DropdownMenuSubContent>
+</DropdownMenuSub>

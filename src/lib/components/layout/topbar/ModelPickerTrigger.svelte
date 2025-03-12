@@ -27,7 +27,7 @@
 				<ChevronDown
 					class={cn(
 						'size-4 transition-transform duration-200',
-						isOpen ? '-rotate-180' : '',
+						isOpen && '-rotate-180',
 					)}
 					aria-hidden
 				/>
