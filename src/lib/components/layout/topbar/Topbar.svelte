@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ChatActions, TemporaryChatTrigger } from '$components/layout/topbar';
+	import { ChatActions, TemporaryChatDialog } from '$components/layout/topbar';
 	import { ProfileSettings } from '$components/layout/topbar/profile-settings';
 	import { useSidebar } from '$components/ui/sidebar';
 
@@ -12,7 +12,7 @@
 	<ChatActions />
 
 	<div class="flex items-center gap-2">
-		<TemporaryChatTrigger />
+		<TemporaryChatDialog />
 
 		{#if !sidebar.isMobile}
 			<ProfileSettings />

@@ -22,6 +22,7 @@
 	import { Sheet, SheetContent } from '$components/ui/sheet';
 	import { SIDEBAR_WIDTH_MOBILE, useSidebar } from '$components/ui/sidebar';
 	import { cn } from '$utils';
+	import { onMount } from 'svelte';
 
 	let {
 		ref = $bindable(null),
@@ -34,6 +35,18 @@
 	}: SidebarProps = $props();
 
 	const sidebar = useSidebar();
+
+	function handleWindowResize() {
+		if (sidebar.isMobile && sidebar.open) {
+			sidebar.setOpen(false);
+		}
+	}
+
+	onMount(() => {
+		window.addEventListener('resize', handleWindowResize);
+
+		return () => window.removeEventListener('resize', handleWindowResize);
+	});
 </script>
 
 {#if collapsible === 'none'}

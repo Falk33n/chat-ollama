@@ -7,28 +7,26 @@
 	const sidebar = useSidebar();
 </script>
 
-{#if !sidebar.openMobile}
-	<div class="flex items-center gap-2">
-		{#if !sidebar.open}
-			<SidebarTrigger>
-				{#if !sidebar.isMobile}
-					<PanelRightCloseIcon aria-hidden />
-				{:else}
-					<AlignLeftIcon aria-hidden />
-				{/if}
-			</SidebarTrigger>
-
-			{#if !sidebar.isMobile}
-				<NewChatTrigger />
-			{/if}
-		{/if}
+<div class="flex items-center gap-2">
+	{#if !sidebar.open && !sidebar.isMobile}
+		<SidebarTrigger>
+			<PanelRightCloseIcon aria-hidden />
+		</SidebarTrigger>
 
 		{#if !sidebar.isMobile}
-			<ModelPicker />
+			<NewChatTrigger />
 		{/if}
-	</div>
+	{:else if sidebar.isMobile}
+		<SidebarTrigger>
+			<AlignLeftIcon aria-hidden />
+		</SidebarTrigger>
+	{/if}
 
-	{#if sidebar.isMobile}
+	{#if !sidebar.isMobile}
 		<ModelPicker />
 	{/if}
+</div>
+
+{#if sidebar.isMobile}
+	<ModelPicker />
 {/if}
