@@ -29,39 +29,34 @@
 		DropdownMenuItem,
 		DropdownMenuSeparator,
 	} from '$components/ui/dropdown-menu';
-	import { useSidebar } from '$components/ui/sidebar';
 
 	let isOpen = $state(false);
-
-	const sidebar = useSidebar();
 </script>
 
-{#if !sidebar.openMobile}
-	<DropdownMenu bind:open={isOpen}>
-		<ModelPickerTrigger bind:isOpen />
+<DropdownMenu bind:open={isOpen}>
+	<ModelPickerTrigger bind:isOpen />
 
-		<DropdownMenuContent>
-			<DropdownMenuArrow aria-hidden />
+	<DropdownMenuContent>
+		<DropdownMenuArrow aria-hidden />
 
-			<DropdownMenuGroup>
-				<DropdownMenuGroupHeading>Choose Model</DropdownMenuGroupHeading>
+		<DropdownMenuGroup>
+			<DropdownMenuGroupHeading>Choose Model</DropdownMenuGroupHeading>
 
-				<DropdownMenuSeparator />
+			<DropdownMenuSeparator />
 
-				{#each models as { name } (name)}
-					<DropdownMenuItem>
-						{#snippet child({ props: { class: _class, ...props } })}
-							<Button
-								variant="ghost"
-								class="flex w-full justify-start"
-								{...props}
-							>
-								{name}
-							</Button>
-						{/snippet}
-					</DropdownMenuItem>
-				{/each}
-			</DropdownMenuGroup>
-		</DropdownMenuContent>
-	</DropdownMenu>
-{/if}
+			{#each models as { name } (name)}
+				<DropdownMenuItem>
+					{#snippet child({ props: { class: _class, ...props } })}
+						<Button
+							variant="ghost"
+							class="flex w-full justify-start"
+							{...props}
+						>
+							{name}
+						</Button>
+					{/snippet}
+				</DropdownMenuItem>
+			{/each}
+		</DropdownMenuGroup>
+	</DropdownMenuContent>
+</DropdownMenu>

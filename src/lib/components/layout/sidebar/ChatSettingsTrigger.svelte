@@ -6,6 +6,7 @@
 	} from '$components/layout/sidebar';
 	import { buttonVariants } from '$components/ui/button';
 	import { DropdownMenuTrigger } from '$components/ui/dropdown-menu';
+	import { useSidebar } from '$components/ui/sidebar';
 	import { cn } from '$utils';
 	import { EllipsisIcon } from 'lucide-svelte';
 
@@ -15,6 +16,7 @@
 	}: ChatSettingsProps = $props();
 
 	const context = getSidebarMenuItemContext();
+	const sidebar = useSidebar();
 </script>
 
 <DropdownMenuTrigger
@@ -36,7 +38,7 @@
 				)}
 				{...props}
 			>
-				{#if context?.isOptionsVisible.value || isOptionsMenuOpen || isOptionsTooltipVisible}
+				{#if sidebar.isMobile || context?.isOptionsVisible.value || isOptionsMenuOpen || isOptionsTooltipVisible}
 					<EllipsisIcon
 						class="size-4"
 						aria-hidden
