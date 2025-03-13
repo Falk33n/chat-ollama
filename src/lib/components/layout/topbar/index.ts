@@ -9,3 +9,5 @@ export { default as NewChatTrigger } from '$components/layout/topbar/NewChatTrig
 export { default as ChatActions } from '$components/layout/topbar/ChatActions.svelte';
 
 export { default as TemporaryChatTrigger } from '$components/layout/topbar/TemporaryChatTrigger.svelte';
+
+export { default as TemporaryChatDialog } from '$components/layout/topbar/TemporaryChatDialog.svelte';

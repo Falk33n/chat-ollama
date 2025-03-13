@@ -1,21 +1,34 @@
+<script
+	lang="ts"
+	module
+>
+	type TemporaryChatTriggerProps = { isPressed?: boolean };
+</script>
+
 <script lang="ts">
 	import { Tooltip } from '$components/global';
-	import { Button } from '$components/ui/button';
+	import { buttonVariants } from '$components/ui/button';
+	import { DialogTrigger } from '$components/ui/dialog';
 	import { useSidebar } from '$components/ui/sidebar';
+	import { cn } from '$utils';
 	import { CheckIcon, MessageCircleDashedIcon } from 'lucide-svelte';
 
-	let isPressed = $state(false);
+	let { isPressed = $bindable(false) }: TemporaryChatTriggerProps = $props();
 
 	const sidebar = useSidebar();
 </script>
 
 <Tooltip content="Activate temporary chat mode">
-	{#snippet trigger({ props: { onclick: _onclick, ...props } })}
-		<Button
-			variant="outline"
-			size={sidebar.isMobile ? 'icon' : 'default'}
-			aria-pressed={isPressed}
+	{#snippet trigger({ props: { onclick: _onclick, class: _class, ...props } })}
+		<DialogTrigger
+			class={cn(
+				buttonVariants({
+					variant: 'outline',
+					size: sidebar.isMobile ? 'icon' : 'default',
+				}),
+			)}
 			aria-label="Activate temporary chat mode"
+			aria-pressed={isPressed}
 			onclick={() => (isPressed = !isPressed)}
 			{...props}
 		>
@@ -36,6 +49,6 @@
 			{#if !sidebar.isMobile}
 				Temporary
 			{/if}
-		</Button>
+		</DialogTrigger>
 	{/snippet}
 </Tooltip>
