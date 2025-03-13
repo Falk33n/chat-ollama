@@ -29,8 +29,8 @@
 				class="fixed top-1/2 left-1/2 z-[9999] size-10 -translate-x-1/2 -translate-y-1/2 animate-spin"
 				aria-hidden
 			/>
-		{:else}
-			{@render children?.()}
 		{/if}
+
+		{@render children?.()}
 	</SidebarProvider>
 </TooltipProvider>
