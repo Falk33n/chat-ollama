@@ -16,7 +16,7 @@
 		{#if !sidebar.isMobile}
 			<NewChatTrigger />
 		{/if}
-	{:else}
+	{:else if sidebar.isMobile}
 		<SidebarTrigger>
 			<AlignLeftIcon aria-hidden />
 		</SidebarTrigger>
