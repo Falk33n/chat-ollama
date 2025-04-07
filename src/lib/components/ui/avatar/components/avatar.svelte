@@ -1,24 +1,14 @@
-<script
-	lang="ts"
-	module
->
-	import { Avatar as AvatarPrimitive, type WithElementRef } from 'bits-ui';
-
-	export type AvatarProps = WithElementRef<
-		Omit<AvatarPrimitive.RootProps, 'ref'>,
-		HTMLDivElement
-	>;
-</script>
-
 <script lang="ts">
-	import { cn } from '$utils';
+	import { cn } from '$lib/utils';
+	import { Avatar as AvatarPrimitive } from 'bits-ui';
+	import type { AvatarRootProps } from '../types';
 
 	let {
 		ref = $bindable(null),
 		loadingStatus = $bindable('loading'),
 		class: className,
 		...restProps
-	}: AvatarProps = $props();
+	}: AvatarRootProps = $props();
 </script>
 
 <AvatarPrimitive.Root

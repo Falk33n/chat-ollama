@@ -1,13 +1,13 @@
 <script lang="ts">
-	import { Tooltip } from '$components/global';
+	import { Tooltip } from '$lib/components/global';
 	import {
 		getSidebarMenuItemContext,
 		type ChatSettingsProps,
-	} from '$components/layout/sidebar';
-	import { buttonVariants } from '$components/ui/button';
-	import { DropdownMenuTrigger } from '$components/ui/dropdown-menu';
-	import { useSidebar } from '$components/ui/sidebar';
-	import { cn } from '$utils';
+	} from '$lib/components/layout/sidebar';
+	import { buttonVariants } from '$lib/components/ui/button';
+	import { DropdownMenuTrigger } from '$lib/components/ui/dropdown-menu';
+	import { useSidebar } from '$lib/components/ui/sidebar';
+	import { cn } from '$lib/utils';
 	import { EllipsisIcon } from 'lucide-svelte';
 
 	let {
@@ -28,7 +28,7 @@
 		content="Open chat settings"
 		contentProps={{ sideOffset: -6 }}
 	>
-		{#snippet trigger({ props: { onclick: _onclick, ...props } })}
+		{#snippet trigger({ props: { onclick: _onclick, ...restProps } })}
 			<span
 				class={cn(
 					buttonVariants({ variant: 'ghost', size: 'icon' }),
@@ -36,7 +36,7 @@
 					(isOptionsMenuOpen || isOptionsTooltipVisible) &&
 						'text-sidebar-accent-foreground',
 				)}
-				{...props}
+				{...restProps}
 			>
 				{#if sidebar.isMobile || context?.isOptionsVisible.value || isOptionsMenuOpen || isOptionsTooltipVisible}
 					<EllipsisIcon

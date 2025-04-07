@@ -6,22 +6,22 @@
 </script>
 
 <script lang="ts">
-	import { Tooltip } from '$components/global';
-	import { Button } from '$components/ui/button';
-	import { cn } from '$utils';
+	import { Tooltip } from '$lib/components/global';
+	import { Button } from '$lib/components/ui/button';
+	import { cn } from '$lib/utils';
 	import { SquarePenIcon } from 'lucide-svelte';
 
 	let { class: className }: NewChatTriggerProps = $props();
 </script>
 
 <Tooltip content="New chat">
-	{#snippet trigger({ props: { onclick: _onclick, ...props } })}
+	{#snippet trigger({ props: { onclick: _onclick, ...restProps } })}
 		<Button
 			variant="outline"
 			size="icon"
 			class={className ? cn(className) : undefined}
 			aria-label="New chat"
-			{...props}
+			{...restProps}
 		>
 			<SquarePenIcon aria-hidden />
 		</Button>

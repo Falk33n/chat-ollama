@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { Tooltip } from '$components/global';
-	import { Avatar, AvatarFallback, AvatarImage } from '$components/ui/avatar';
-	import { buttonVariants } from '$components/ui/button';
-	import { DropdownMenuTrigger } from '$components/ui/dropdown-menu';
-	import { cn } from '$utils';
+	import { Tooltip } from '$lib/components/global';
+	import { Avatar } from '$lib/components/ui/avatar';
+	import { buttonVariants } from '$lib/components/ui/button';
+	import { DropdownMenuTrigger } from '$lib/components/ui/dropdown-menu';
+	import { cn } from '$lib/utils';
 </script>
 
 <DropdownMenuTrigger
@@ -14,19 +14,19 @@
 	)}
 >
 	<Tooltip content="Open settings">
-		{#snippet trigger({ props: { onclick: _onclick, ...props } })}
-			<Avatar
+		{#snippet trigger({ props: { onclick: _onclick, ...restProps } })}
+			<Avatar.Root
 				class="size-full"
-				{...props}
+				{...restProps}
 			>
-				<AvatarImage
+				<Avatar.Image
 					src="/images/profile-picture.webp"
 					alt="User profile picture"
 					draggable={false}
 				/>
 
-				<AvatarFallback class="text-[10px] font-bold">Profile</AvatarFallback>
-			</Avatar>
+				<Avatar.Fallback class="text-[10px] font-bold">Profile</Avatar.Fallback>
+			</Avatar.Root>
 		{/snippet}
 	</Tooltip>
 </DropdownMenuTrigger>

@@ -9,10 +9,9 @@
 
 <script lang="ts">
 	import { browser } from '$app/environment';
-	import { SidebarProvider } from '$components/ui/sidebar';
-	import { Skeleton } from '$components/ui/skeleton';
-	import { TooltipProvider } from '$components/ui/tooltip';
-	import '$styles';
+	import { SidebarProvider } from '$lib/components/ui/sidebar';
+	import { Skeleton } from '$lib/components/ui/skeleton';
+	import { TooltipProvider } from '$lib/components/ui/tooltip';
 	import { LoaderCircleIcon } from 'lucide-svelte';
 	import { ModeWatcher as ModeProvider } from 'mode-watcher';
 

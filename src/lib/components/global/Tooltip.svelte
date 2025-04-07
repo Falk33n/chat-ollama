@@ -10,7 +10,7 @@
 		TooltipTrigger as TooltipPrimitiveTrigger,
 		type TooltipContentProps as TooltipPrimitiveContentProps,
 		type TooltipProps as TooltipPrimitiveRootProps,
-	} from '$components/ui/tooltip';
+	} from '$lib/components/ui/tooltip';
 	import type { WithoutChildren } from 'bits-ui';
 	import { type Snippet } from 'svelte';
 

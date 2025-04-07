@@ -8,7 +8,7 @@
 </script>
 
 <script lang="ts">
-	import { Topbar } from '$components/layout/topbar';
+	import { Topbar } from '$lib/components/layout/topbar';
 	import '$styles';
 
 	let { children }: ProviderProps = $props();

@@ -1,14 +1,12 @@
-export {
-	default as Avatar,
-	type AvatarProps,
-} from '$components/ui/avatar/Avatar.svelte';
+import * as Avatar from './exports';
+import type { AvatarFallbackProps, AvatarImageProps, AvatarRootProps } from './types';
 
 export {
-	default as AvatarFallback,
+	Avatar,
 	type AvatarFallbackProps,
-} from '$components/ui/avatar/AvatarFallback.svelte';
-
-export {
-	default as AvatarImage,
 	type AvatarImageProps,
-} from '$components/ui/avatar/AvatarImage.svelte';
+	type AvatarRootProps,
+	type AvatarFallbackProps as FallbackProps,
+	type AvatarImageProps as ImageProps,
+	type AvatarRootProps as RootProps,
+};

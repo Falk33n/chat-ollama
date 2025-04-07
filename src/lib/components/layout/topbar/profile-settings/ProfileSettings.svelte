@@ -2,12 +2,7 @@
 	lang="ts"
 	module
 >
-	import {
-		Settings2Icon,
-		SettingsIcon,
-		UserRoundCogIcon,
-		type Icon,
-	} from 'lucide-svelte';
+	import { Settings2Icon, SettingsIcon, UserRoundCogIcon, type Icon } from 'lucide-svelte';
 
 	type Setting = { icon: typeof Icon; content: string; ariaLabel: string };
 
@@ -35,8 +30,8 @@
 		LogOutTrigger,
 		ModeToggleDropdown,
 		ProfileSettingsTrigger,
-	} from '$components/layout/topbar/profile-settings';
-	import { Button } from '$components/ui/button';
+	} from '$lib/components/layout/topbar/profile-settings';
+	import { Button } from '$lib/components/ui/button';
 	import {
 		DropdownMenu,
 		DropdownMenuArrow,
@@ -45,7 +40,7 @@
 		DropdownMenuGroupHeading,
 		DropdownMenuItem,
 		DropdownMenuSeparator,
-	} from '$components/ui/dropdown-menu';
+	} from '$lib/components/ui/dropdown-menu';
 </script>
 
 <DropdownMenu>
@@ -55,18 +50,22 @@
 		<DropdownMenuArrow />
 
 		<DropdownMenuGroup>
-			<DropdownMenuGroupHeading class="sr-only">
-				Profile Settings
-			</DropdownMenuGroupHeading>
+			<DropdownMenuGroupHeading class="sr-only">Profile Settings</DropdownMenuGroupHeading>
 
 			{#each settings as { icon: Icon, content, ariaLabel } (content)}
 				<DropdownMenuItem>
-					{#snippet child({ props: { class: _class, ...props } })}
+					{#snippet child({
+						props: {
+							// @ts-expect-error `implicity any`: props is just typed as a record.
+							class: _class,
+							...restProps
+						},
+					})}
 						<Button
 							variant="ghost"
 							class="flex w-full justify-start"
 							aria-label={ariaLabel}
-							{...props}
+							{...restProps}
 						>
 							<Icon
 								class="size-4"

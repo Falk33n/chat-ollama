@@ -1,29 +1,9 @@
-<script
-	lang="ts"
-	module
->
-	import {
-		Dialog as DialogPrimitive,
-		type WithElementRef,
-		type WithoutChildrenOrChild,
-	} from 'bits-ui';
-	import type { Snippet } from 'svelte';
-
-	type DialogContentBaseProps = WithElementRef<
-		Omit<WithoutChildrenOrChild<DialogPrimitive.ContentProps>, 'ref'>,
-		HTMLDivElement
-	>;
-
-	export type DialogContentProps = DialogContentBaseProps & {
-		portalProps?: DialogPrimitive.PortalProps;
-		children: Snippet;
-	};
-</script>
-
 <script lang="ts">
-	import { DialogOverlay, DialogPortal } from '$components/ui/dialog';
-	import { cn } from '$utils';
-	import { XIcon } from 'lucide-svelte';
+	import { cn } from '$lib/utils';
+	import XIcon from '@lucide/svelte/icons/x';
+	import { Dialog as DialogPrimitive } from 'bits-ui';
+	import type { DialogContentProps } from '../types';
+	import DialogOverlay from './dialog-overlay.svelte';
 
 	let {
 		ref = $bindable(null),
@@ -34,7 +14,7 @@
 	}: DialogContentProps = $props();
 </script>
 
-<DialogPortal {...portalProps}>
+<DialogPrimitive.Portal {...portalProps}>
 	<DialogOverlay />
 
 	<DialogPrimitive.Content
@@ -57,4 +37,4 @@
 			/>
 		</DialogPrimitive.Close>
 	</DialogPrimitive.Content>
-</DialogPortal>
+</DialogPrimitive.Portal>

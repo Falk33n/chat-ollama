@@ -6,11 +6,11 @@
 </script>
 
 <script lang="ts">
-	import { Tooltip } from '$components/global';
-	import { buttonVariants } from '$components/ui/button';
-	import { DialogTrigger } from '$components/ui/dialog';
-	import { useSidebar } from '$components/ui/sidebar';
-	import { cn } from '$utils';
+	import { Tooltip } from '$lib/components/global';
+	import { buttonVariants } from '$lib/components/ui/button';
+	import { Dialog } from '$lib/components/ui/dialog';
+	import { useSidebar } from '$lib/components/ui/sidebar';
+	import { cn } from '$lib/utils';
 	import { CheckIcon, MessageCircleDashedIcon } from 'lucide-svelte';
 
 	let { isPressed = $bindable(false) }: TemporaryChatTriggerProps = $props();
@@ -19,18 +19,18 @@
 </script>
 
 <Tooltip content="Activate temporary chat mode">
-	{#snippet trigger({ props: { onclick: _onclick, class: _class, ...props } })}
-		<DialogTrigger
+	{#snippet trigger({ props: { onclick: _onclick, class: _class, ...restProps } })}
+		<Dialog.Trigger
 			class={cn(
 				buttonVariants({
 					variant: 'outline',
-					size: sidebar.isMobile ? 'icon' : 'default',
+					size: sidebar.isMobile ? 'icon' : 'md',
 				}),
 			)}
 			aria-label="Activate temporary chat mode"
 			aria-pressed={isPressed}
 			onclick={() => (isPressed = !isPressed)}
-			{...props}
+			{...restProps}
 		>
 			<span
 				class="relative"
@@ -49,6 +49,6 @@
 			{#if !sidebar.isMobile}
 				Temporary
 			{/if}
-		</DialogTrigger>
+		</Dialog.Trigger>
 	{/snippet}
 </Tooltip>

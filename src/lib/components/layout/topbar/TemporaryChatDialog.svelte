@@ -1,27 +1,21 @@
 <script lang="ts">
-	import { TemporaryChatTrigger } from '$components/layout/topbar';
-	import {
-		Dialog,
-		DialogContent,
-		DialogDescription,
-		DialogHeader,
-		DialogTitle,
-	} from '$components/ui/dialog';
+	import { TemporaryChatTrigger } from '$lib/components/layout/topbar';
+	import { Dialog } from '$lib/components/ui/dialog';
 
 	let isDialogOpen = $state(false);
 </script>
 
-<Dialog>
+<Dialog.Root>
 	<TemporaryChatTrigger bind:isPressed={isDialogOpen} />
 
-	<DialogContent>
-		<DialogHeader>
-			<DialogTitle>Are you sure absolutely sure?</DialogTitle>
+	<Dialog.Content>
+		<Dialog.Header>
+			<Dialog.Title>Are you sure absolutely sure?</Dialog.Title>
 
-			<DialogDescription>
-				This action cannot be undone. This will permanently delete your account
-				and remove your data from our servers.
-			</DialogDescription>
-		</DialogHeader>
-	</DialogContent>
-</Dialog>
+			<Dialog.Description>
+				This action cannot be undone. This will permanently delete your account and remove
+				your data from our servers.
+			</Dialog.Description>
+		</Dialog.Header>
+	</Dialog.Content>
+</Dialog.Root>
