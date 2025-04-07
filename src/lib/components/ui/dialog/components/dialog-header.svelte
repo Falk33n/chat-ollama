@@ -1,18 +1,6 @@
-<script
-	lang="ts"
-	module
->
-	import { type WithElementRef } from 'bits-ui';
-	import type { HTMLAttributes } from 'svelte/elements';
-
-	export type DialogHeaderProps = WithElementRef<
-		HTMLAttributes<HTMLDivElement>,
-		HTMLDivElement
-	>;
-</script>
-
 <script lang="ts">
-	import { cn } from '$utils';
+	import { cn } from '$lib/utils';
+	import type { DialogHeaderProps } from '../types';
 
 	let {
 		ref = $bindable(null),

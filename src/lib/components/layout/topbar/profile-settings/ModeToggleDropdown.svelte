@@ -2,13 +2,7 @@
 	lang="ts"
 	module
 >
-	import {
-		ChevronLeftIcon,
-		CpuIcon,
-		Icon,
-		MoonIcon,
-		SunIcon,
-	} from 'lucide-svelte';
+	import { ChevronLeftIcon, CpuIcon, Icon, MoonIcon, SunIcon } from 'lucide-svelte';
 
 	type Mode = {
 		icon: typeof Icon;
@@ -40,23 +34,20 @@
 </script>
 
 <script lang="ts">
-	import { Button, buttonVariants } from '$components/ui/button';
+	import { Button, buttonVariants } from '$lib/components/ui/button';
 	import {
 		DropdownMenuItem,
 		DropdownMenuSub,
 		DropdownMenuSubContent,
 		DropdownMenuSubTrigger,
-	} from '$components/ui/dropdown-menu';
-	import { cn } from '$utils';
+	} from '$lib/components/ui/dropdown-menu';
+	import { cn } from '$lib/utils';
 	import { setMode } from 'mode-watcher';
 </script>
 
 <DropdownMenuSub>
 	<DropdownMenuSubTrigger
-		class={cn(
-			buttonVariants({ variant: 'ghost' }),
-			'w-full justify-start [&>svg]:hidden',
-		)}
+		class={cn(buttonVariants({ variant: 'ghost' }), 'w-full justify-start [&>svg]:hidden')}
 		aria-label="Open color theme settings"
 	>
 		<span class="flex items-center gap-2">
@@ -72,12 +63,18 @@
 	<DropdownMenuSubContent side="left">
 		{#each modes as { icon: Icon, content, ariaLabel, mode } (content)}
 			<DropdownMenuItem onclick={() => setMode(mode)}>
-				{#snippet child({ props: { class: _class, ...props } })}
+				{#snippet child({
+					props: {
+						// @ts-expect-error `implicity any`: props is just typed as a record.
+						class: _class,
+						...restProps
+					},
+				})}
 					<Button
 						variant="ghost"
 						class="flex w-full justify-start"
 						aria-label={ariaLabel}
-						{...props}
+						{...restProps}
 					>
 						<Icon
 							class="size-4"

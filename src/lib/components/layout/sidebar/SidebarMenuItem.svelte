@@ -2,17 +2,11 @@
 	lang="ts"
 	module
 >
-	import {
-		ChatSettings,
-		type SidebarChatHistoryItem,
-	} from '$components/layout/sidebar';
+	import { ChatSettings, type SidebarChatHistoryItem } from '$lib/components/layout/sidebar';
 	import type { WithElementRef } from 'bits-ui';
 	import { getContext, hasContext, setContext } from 'svelte';
 
-	type SidebarMenuItemContextProps = Omit<
-		SidebarChatHistoryItem,
-		'updatedAt'
-	> & {
+	type SidebarMenuItemContextProps = Omit<SidebarChatHistoryItem, 'updatedAt'> & {
 		isOptionsVisible: { value: boolean };
 	};
 
@@ -24,17 +18,12 @@
 	const SIDEBAR_MENU_ITEM_CONTEXT_NAME = 'sidebar-menu-item-context';
 
 	function setSidebarMenuItemContext(props: SidebarMenuItemContextProps) {
-		setContext<SidebarMenuItemContextProps>(
-			SIDEBAR_MENU_ITEM_CONTEXT_NAME,
-			props,
-		);
+		setContext<SidebarMenuItemContextProps>(SIDEBAR_MENU_ITEM_CONTEXT_NAME, props);
 	}
 
 	export function getSidebarMenuItemContext() {
 		if (!hasContext(SIDEBAR_MENU_ITEM_CONTEXT_NAME)) return;
-		return getContext<SidebarMenuItemContextProps>(
-			SIDEBAR_MENU_ITEM_CONTEXT_NAME,
-		);
+		return getContext<SidebarMenuItemContextProps>(SIDEBAR_MENU_ITEM_CONTEXT_NAME);
 	}
 </script>
 
@@ -42,8 +31,8 @@
 	import {
 		SidebarMenuButton as SidebarPrimitiveMenuButton,
 		SidebarMenuItem as SidebarPrimitiveMenuItem,
-	} from '$components/ui/sidebar';
-	import { cn } from '$utils';
+	} from '$lib/components/ui/sidebar';
+	import { cn } from '$lib/utils';
 
 	let { ref = $bindable(null), title, chatId }: SidebarMenuItemProps = $props();
 
@@ -75,11 +64,14 @@
 			(isOptionsMenuOpen || isOptionsTooltipVisible) && 'bg-sidebar-accent',
 		)}
 	>
-		{#snippet child({ props })}
+		{#snippet child({
+			// @ts-expect-error `implicity any`: props is just typed as a record.
+			restProps,
+		})}
 			<a
 				bind:this={ref}
 				href={`/chat/${chatId}`}
-				{...props}
+				{...restProps}
 			>
 				<span>{title}</span>
 

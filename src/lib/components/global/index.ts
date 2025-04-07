@@ -1,1 +1,3 @@
-export { default as Tooltip } from '$components/global/Tooltip.svelte';
+import Tooltip from './tooltip.svelte';
+
+export { Tooltip };

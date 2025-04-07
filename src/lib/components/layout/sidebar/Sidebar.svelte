@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { SidebarContent, SidebarHeader } from '$components/layout/sidebar';
-	import { Sidebar as SidebarPrimitiveRoot } from '$components/ui/sidebar';
+	import { SidebarContent, SidebarHeader } from '$lib/components/layout/sidebar';
+	import { Sidebar as SidebarPrimitiveRoot } from '$lib/components/ui/sidebar';
 </script>
 
 <SidebarPrimitiveRoot>

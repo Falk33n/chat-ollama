@@ -28,8 +28,7 @@
 		}
 
 		return chats.sort(
-			(a, b) =>
-				new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime(),
+			(a, b) => new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime(),
 		);
 	}
 
@@ -78,14 +77,14 @@
 </script>
 
 <script lang="ts">
-	import { SidebarMenuItem } from '$components/layout/sidebar';
+	import { SidebarMenuItem } from '$lib/components/layout/sidebar';
 	import {
 		SidebarContent as SidebarPrimitiveContent,
 		SidebarGroup as SidebarPrimitiveGroup,
 		SidebarGroupContent as SidebarPrimitiveGroupContent,
 		SidebarGroupLabel as SidebarPrimitiveGroupLabel,
 		SidebarMenu as SidebarPrimitiveMenu,
-	} from '$components/ui/sidebar';
+	} from '$lib/components/ui/sidebar';
 	import { LoaderIcon } from 'lucide-svelte';
 	import { onMount } from 'svelte';
 
@@ -119,9 +118,7 @@
 
 			if (existingGroupIndex !== -1) {
 				chats = chats.map((g, i) =>
-					i === existingGroupIndex
-						? { ...g, items: [...g.items, ...items] }
-						: g,
+					i === existingGroupIndex ? { ...g, items: [...g.items, ...items] } : g,
 				);
 			} else {
 				chats = [...chats, { group, items }];

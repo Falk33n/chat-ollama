@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { ChatActions, TemporaryChatDialog } from '$components/layout/topbar';
-	import { ProfileSettings } from '$components/layout/topbar/profile-settings';
-	import { useSidebar } from '$components/ui/sidebar';
+	import { ChatActions, TemporaryChatDialog } from '$lib/components/layout/topbar';
+	import { ProfileSettings } from '$lib/components/layout/topbar/profile-settings';
+	import { useSidebar } from '$lib/components/ui/sidebar';
 
 	const sidebar = useSidebar();
 </script>

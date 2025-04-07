@@ -28,11 +28,8 @@
 </script>
 
 <script lang="ts">
-	import {
-		ChatSettingsTrigger,
-		getSidebarMenuItemContext,
-	} from '$components/layout/sidebar';
-	import { Button } from '$components/ui/button';
+	import { ChatSettingsTrigger, getSidebarMenuItemContext } from '$lib/components/layout/sidebar';
+	import { Button } from '$lib/components/ui/button';
 	import {
 		DropdownMenu,
 		DropdownMenuArrow,
@@ -40,8 +37,8 @@
 		DropdownMenuGroup,
 		DropdownMenuGroupHeading,
 		DropdownMenuItem,
-	} from '$components/ui/dropdown-menu';
-	import { cn } from '$utils';
+	} from '$lib/components/ui/dropdown-menu';
+	import { cn } from '$lib/utils';
 
 	let {
 		isOptionsMenuOpen = $bindable(false),
@@ -73,13 +70,17 @@
 		<DropdownMenuArrow aria-hidden />
 
 		<DropdownMenuGroup>
-			<DropdownMenuGroupHeading class="sr-only">
-				Chat Settings
-			</DropdownMenuGroupHeading>
+			<DropdownMenuGroupHeading class="sr-only">Chat Settings</DropdownMenuGroupHeading>
 
 			{#each chatSettings as { icon: Icon, content } (content)}
 				<DropdownMenuItem>
-					{#snippet child({ props: { class: _class, ...props } })}
+					{#snippet child({
+						props: {
+							// @ts-expect-error `implicity any`: props is just typed as a record.
+							class: _class,
+							...restProps
+						},
+					})}
 						<Button
 							variant="ghost"
 							class={cn(
@@ -87,7 +88,7 @@
 								Icon === TrashIcon &&
 									'text-destructive hover:text-destructive hover:bg-destructive/5',
 							)}
-							{...props}
+							{...restProps}
 						>
 							<Icon
 								aria-hidden

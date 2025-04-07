@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { SidebarTrigger } from '$components/layout/sidebar';
-	import { ModelPicker, NewChatTrigger } from '$components/layout/topbar';
-	import { useSidebar } from '$components/ui/sidebar';
+	import { SidebarTrigger } from '$lib/components/layout/sidebar';
+	import { ModelPicker, NewChatTrigger } from '$lib/components/layout/topbar';
+	import { useSidebar } from '$lib/components/ui/sidebar';
 	import { AlignLeftIcon, PanelRightCloseIcon } from 'lucide-svelte';
 
 	const sidebar = useSidebar();

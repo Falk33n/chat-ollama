@@ -1,14 +1,15 @@
 <script lang="ts">
-	import { buttonVariants, type ButtonProps } from '$components/ui/button';
-	import { cn } from '$utils';
+	import { cn } from '$lib/utils';
+	import type { ButtonProps } from './types';
+	import { buttonVariants } from './variants';
 
 	let {
-		class: className,
-		variant = 'default',
-		size = 'default',
 		ref = $bindable(null),
+		variant = 'primary',
+		size = 'md',
 		href = undefined,
 		type = 'button',
+		class: className,
 		children,
 		...restProps
 	}: ButtonProps = $props();

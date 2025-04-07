@@ -1,15 +1,21 @@
 <script lang="ts">
-	import { Button } from '$components/ui/button';
-	import { DropdownMenuItem } from '$components/ui/dropdown-menu';
+	import { Button } from '$lib/components/ui/button';
+	import { DropdownMenuItem } from '$lib/components/ui/dropdown-menu';
 	import { LogOutIcon } from 'lucide-svelte';
 </script>
 
 <DropdownMenuItem>
-	{#snippet child({ props: { class: _class, ...props } })}
+	{#snippet child({
+		props: {
+			// @ts-expect-error `implicity any`: props is just typed as a record.
+			class: _class,
+			...restProps
+		},
+	})}
 		<Button
 			variant="ghost"
 			class="w-full justify-start"
-			{...props}
+			{...restProps}
 		>
 			<LogOutIcon
 				class="size-4"

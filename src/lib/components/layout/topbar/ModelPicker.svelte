@@ -18,8 +18,8 @@
 </script>
 
 <script>
-	import { ModelPickerTrigger } from '$components/layout/topbar';
-	import { Button } from '$components/ui/button';
+	import { ModelPickerTrigger } from '$lib/components/layout/topbar';
+	import { Button } from '$lib/components/ui/button';
 	import {
 		DropdownMenu,
 		DropdownMenuArrow,
@@ -28,7 +28,7 @@
 		DropdownMenuGroupHeading,
 		DropdownMenuItem,
 		DropdownMenuSeparator,
-	} from '$components/ui/dropdown-menu';
+	} from '$lib/components/ui/dropdown-menu';
 
 	let isOpen = $state(false);
 </script>
@@ -46,11 +46,17 @@
 
 			{#each models as { name } (name)}
 				<DropdownMenuItem>
-					{#snippet child({ props: { class: _class, ...props } })}
+					{#snippet child({
+						props: {
+							// @ts-expect-error `implicity any`: props is just typed as a record.
+							class: _class,
+							...restProps
+						},
+					})}
 						<Button
 							variant="ghost"
 							class="flex w-full justify-start"
-							{...props}
+							{...restProps}
 						>
 							{name}
 						</Button>
