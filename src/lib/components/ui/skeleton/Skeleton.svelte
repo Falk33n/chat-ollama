@@ -1,11 +1,11 @@
 <script lang="ts">
-	import type { SkeletonProps } from '$components/ui/skeleton';
-	import { cn } from '$utils';
+	import { cn } from '$lib/utils';
+	import type { SkeletonProps } from './types';
 
 	let {
 		ref = $bindable(null),
-		'class': className,
 		'aria-hidden': ariaHidden = true,
+		'class': className,
 		...restProps
 	}: SkeletonProps = $props();
 </script>

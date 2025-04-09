@@ -45,6 +45,11 @@ export type DialogDescriptionProps = WithElementRef<
 
 type DialogContentPropsWithoutHTML = WithElementRef<
 	{
+		/**
+		 * The props to be used for the portal component.
+		 * See reference for more information.
+		 * https://github.com/huntabyte/bits-ui/blob/6384cfecdf82adf6b2665a0f0da421493064bdc8/packages/bits-ui/src/lib/bits/utilities/portal/types.ts#L3
+		 */
 		portalProps?: DialogPrimitive.PortalProps;
 		children: Snippet;
 	},

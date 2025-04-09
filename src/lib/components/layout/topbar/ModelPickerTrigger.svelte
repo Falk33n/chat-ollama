@@ -8,14 +8,14 @@
 <script lang="ts">
 	import { Tooltip } from '$lib/components/global';
 	import { buttonVariants } from '$lib/components/ui/button';
-	import { DropdownMenuTrigger } from '$lib/components/ui/dropdown-menu';
+	import { DropdownMenu } from '$lib/components/ui/dropdown-menu';
 	import { cn } from '$lib/utils';
 	import { ChevronDown } from 'lucide-svelte';
 
 	let { isOpen = $bindable(false) }: ModelPickerTriggerProps = $props();
 </script>
 
-<DropdownMenuTrigger aria-label="Open Model Picker">
+<DropdownMenu.Trigger aria-label="Open Model Picker">
 	<Tooltip content="Open Model Picker">
 		{#snippet trigger({
 			// @ts-expect-error `implicity any`: props is just typed as a record.
@@ -34,4 +34,4 @@
 			</span>
 		{/snippet}
 	</Tooltip>
-</DropdownMenuTrigger>
+</DropdownMenu.Trigger>

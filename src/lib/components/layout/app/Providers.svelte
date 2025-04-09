@@ -1,25 +1,17 @@
-<script
-	lang="ts"
-	module
->
-	import type { Snippet } from 'svelte';
-
-	type ProvidersProps = { children?: Snippet };
-</script>
-
 <script lang="ts">
 	import { browser } from '$app/environment';
-	import { SidebarProvider } from '$lib/components/ui/sidebar';
+	import { Sidebar } from '$lib/components/ui/sidebar';
 	import { Skeleton } from '$lib/components/ui/skeleton';
-	import { TooltipProvider } from '$lib/components/ui/tooltip';
-	import { LoaderCircleIcon } from 'lucide-svelte';
+	import { TooltipBase } from '$lib/components/ui/tooltip';
+	import LoaderCircleIcon from '@lucide/svelte/icons/loader-circle';
+	import type { WithChildren } from 'bits-ui';
 	import { ModeWatcher as ModeProvider } from 'mode-watcher';
 
-	let { children }: ProvidersProps = $props();
+	let { children }: WithChildren = $props();
 </script>
 
-<TooltipProvider delayDuration={0}>
-	<SidebarProvider>
+<TooltipBase.Provider delayDuration={0}>
+	<Sidebar.Provider>
 		<ModeProvider />
 
 		{#if !browser}
@@ -31,5 +23,5 @@
 		{/if}
 
 		{@render children?.()}
-	</SidebarProvider>
-</TooltipProvider>
+	</Sidebar.Provider>
+</TooltipBase.Provider>

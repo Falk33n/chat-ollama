@@ -1,8 +1,3 @@
-import type { WithElementRef, WithoutChildren } from 'bits-ui';
-import type { HTMLAttributes } from 'svelte/elements';
+export { default as Skeleton } from './skeleton.svelte';
 
-export type SkeletonProps = WithoutChildren<
-	WithElementRef<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
->;
-
-export { default as Skeleton } from '$components/ui/skeleton/Skeleton.svelte';
+export type { SkeletonProps } from './types';

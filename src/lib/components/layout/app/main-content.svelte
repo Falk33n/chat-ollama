@@ -1,17 +1,8 @@
-<script
-	lang="ts"
-	module
->
-	import type { Snippet } from 'svelte';
-
-	type ProviderProps = { children?: Snippet };
-</script>
-
 <script lang="ts">
-	import { Topbar } from '$lib/components/layout/topbar';
-	import '$styles';
+	import type { WithChildren } from 'bits-ui';
+	import { Topbar } from '../topbar';
 
-	let { children }: ProviderProps = $props();
+	let { children }: WithChildren = $props();
 </script>
 
 <main

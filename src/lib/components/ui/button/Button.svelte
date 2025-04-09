@@ -7,9 +7,9 @@
 		ref = $bindable(null),
 		variant = 'primary',
 		size = 'md',
-		href = undefined,
 		type = 'button',
 		class: className,
+		href,
 		children,
 		...restProps
 	}: ButtonProps = $props();

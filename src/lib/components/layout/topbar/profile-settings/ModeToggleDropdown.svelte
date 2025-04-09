@@ -35,18 +35,13 @@
 
 <script lang="ts">
 	import { Button, buttonVariants } from '$lib/components/ui/button';
-	import {
-		DropdownMenuItem,
-		DropdownMenuSub,
-		DropdownMenuSubContent,
-		DropdownMenuSubTrigger,
-	} from '$lib/components/ui/dropdown-menu';
+	import { DropdownMenu } from '$lib/components/ui/dropdown-menu';
 	import { cn } from '$lib/utils';
 	import { setMode } from 'mode-watcher';
 </script>
 
-<DropdownMenuSub>
-	<DropdownMenuSubTrigger
+<DropdownMenu.Sub>
+	<DropdownMenu.SubTrigger
 		class={cn(buttonVariants({ variant: 'ghost' }), 'w-full justify-start [&>svg]:hidden')}
 		aria-label="Open color theme settings"
 	>
@@ -58,18 +53,12 @@
 
 			Change color theme
 		</span>
-	</DropdownMenuSubTrigger>
+	</DropdownMenu.SubTrigger>
 
-	<DropdownMenuSubContent side="left">
+	<DropdownMenu.SubContent side="left">
 		{#each modes as { icon: Icon, content, ariaLabel, mode } (content)}
-			<DropdownMenuItem onclick={() => setMode(mode)}>
-				{#snippet child({
-					props: {
-						// @ts-expect-error `implicity any`: props is just typed as a record.
-						class: _class,
-						...restProps
-					},
-				})}
+			<DropdownMenu.Item onclick={() => setMode(mode)}>
+				{#snippet child({ props: { class: _class, ...restProps } })}
 					<Button
 						variant="ghost"
 						class="flex w-full justify-start"
@@ -84,7 +73,7 @@
 						{content}
 					</Button>
 				{/snippet}
-			</DropdownMenuItem>
+			</DropdownMenu.Item>
 		{/each}
-	</DropdownMenuSubContent>
-</DropdownMenuSub>
+	</DropdownMenu.SubContent>
+</DropdownMenu.Sub>

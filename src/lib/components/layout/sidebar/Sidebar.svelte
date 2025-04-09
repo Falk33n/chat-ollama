@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { SidebarContent, SidebarHeader } from '$lib/components/layout/sidebar';
-	import { Sidebar as SidebarPrimitiveRoot } from '$lib/components/ui/sidebar';
+	import { Sidebar as SidebarPrimitive } from '$lib/components/ui/sidebar';
+	import SidebarContent from './sidebar-content.svelte';
+	import SidebarHeader from './sidebar-header.svelte';
 </script>
 
-<SidebarPrimitiveRoot>
+<SidebarPrimitive.Root>
 	<SidebarHeader />
-
 	<SidebarContent />
-</SidebarPrimitiveRoot>
+</SidebarPrimitive.Root>

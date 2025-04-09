@@ -1,6 +1,6 @@
-import { SIDEBAR_KEYBOARD_SHORTCUT } from '$components/ui/sidebar';
-import { IsMobile } from '$hooks';
+import { IsMobile } from '$lib/hooks/is-mobile.svelte';
 import { getContext, setContext } from 'svelte';
+import { SIDEBAR_KEYBOARD_SHORTCUT } from './constants';
 
 type Getter<T> = () => T;
 
